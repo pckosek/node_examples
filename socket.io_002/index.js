@@ -23,7 +23,7 @@ app.get('/', function (req, res, next) {
 io.on('connection',function(socket){
     
     // log to the local server file
-    console.log("a connection!");
+    console.log('a connection from user: ' + socket.id);
 
     
     socket.on('client_msg', function(data) {
