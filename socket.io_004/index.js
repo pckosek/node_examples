@@ -29,7 +29,7 @@ io.on('connection',function(socket){
     x += 1;
 
     socket.on('list_all_users', function(data){
-        consolle.log( Object.keys(io.sockets.sockets) );
+        console.log( Object.keys(io.sockets.sockets) );
     })
     
     socket.on('client_msg', function(data) {
