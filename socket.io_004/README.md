@@ -1,0 +1,1 @@
+This example shows how to join a room and receive the secret message!!!
