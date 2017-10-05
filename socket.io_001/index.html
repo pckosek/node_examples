@@ -2,15 +2,24 @@
 <html>
   <body>
     <p id='default'>Default Page</p>
+    <button type="button" onclick="sendSocketMessage()">Emit Message</button>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.0.3/socket.io.js"></script>    
     <script>
+      // CREATE THE SOCKET OBJECT AT LOAD TIME
       var socket = io.connect('https://user.tjhsst.edu/', { path: '/pk/socket.io/'  });
-      var el = document.getElementById('server-time');
+
+      // EXAMPLE - EMIT A RANDOM MESSAGE
       socket.emit("testMessage", {data: 'hello'});
       
+      // SEND A MESSAGE TO THE SERVER WHEN YOU LAND ON THE PAGE
       socket.on('foo', function(data){
           console.log(data);
       })
+      
+      // SEND A MESSAGE TO THE SERVER WHEN YOU PRESS THE BUTTON
+      function sendSocketMessage() {
+          socket.emit("testMessage", 100 );
+      }
     </script>
   </body>
 </html>
