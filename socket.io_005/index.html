@@ -1,0 +1,50 @@
+<!doctype html>
+<html>
+    <body>
+        <h1 id='default_title'>Default Landing Page</h1>
+        <p id='some_p'>a completely not suspicious paragraph element</p>
+        <p>
+            <button type="button" onclick="sendOne()">Send One!</button>
+            <button type="button" onclick="sendZero()">Send Zero!</button>
+        </p>
+        <p>
+            <button type="button" onclick="listUsersOnServer()">List All Users</button>
+        </p>
+        <p>
+            <button type="button" onclick="joinSecretRooom()">Join Secret Room</button>
+            <button type="button" onclick="getSecretMessage()">Get Secret Message</button>
+        </p>
+
+        
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.0.3/socket.io.js"></script>    
+        <script>
+            // CREATE THE SOCKET OBJECT AT LOAD TIME
+            var socket = io.connect('https://user.tjhsst.edu/', { path: '/pk/socket.io/'  });
+            
+
+            socket.on('password', function(data){
+                console.log('secret message received!!!');
+                p = document.getElementById('some_p');
+                p.innerHTML = data;
+            });   
+            
+            // --------- client JS functions
+            function sendOne() {
+                socket.emit("client_msg", {data : 1 } );
+            }
+            function sendZero() {
+                socket.emit("client_msg", {data : 0 } );
+            }
+            function listUsersOnServer() {
+                socket.emit("list_all_users", 1 );
+            }
+
+            function joinSecretRooom() {
+                socket.emit("join_secret_room", 1 );
+            }
+            function getSecretMessage() {
+                socket.emit("get_secret_message", 1 );
+            }
+        </script>
+  </body>
+</html>
