@@ -1,0 +1,65 @@
+<!doctype html>
+<html>
+    <body>
+        <h1 id='default_title'>Default Landing Page</h1>
+        <p id='some_p'>a completely not suspicious paragraph element</p>
+        <p>
+            <button type="button" onclick="sendOne()">Send One!</button>
+            <button type="button" onclick="sendZero()">Send Zero!</button>
+        </p>
+        <p>
+            <button type="button" onclick="listUsersOnServer()">List All Users</button>
+        </p>
+        <p>
+            <button type="button" onclick="joinSecretRooom()">Join Secret Room</button>
+            <input type="text" id="room_name" placeholder="enter room name">
+        </p>
+        <p>
+            <button type="button" onclick="listSecretRooms()">List Secret Rooms</button>
+            <span id='room_list'>[not retrieved]</span>
+        </p>
+
+        
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.0.3/socket.io.js"></script>    
+        <script>
+            // CREATE THE SOCKET OBJECT AT LOAD TIME
+            var socket = io.connect('https://user.tjhsst.edu/', { path: '/pk/socket.io/'  });
+            var someData = [];
+
+            socket.on('password', function(data){
+                console.log('secret message received!!!');
+                p = document.getElementById('some_p');
+                p.innerHTML = data;
+            });
+            
+            socket.on('all_rooms', function(data){
+                console.log('room list recieved!!!');
+                s = document.getElementById('room_list');
+                s.innerHTML = data;
+                console.log(data);
+            });   
+            
+            // --------- client JS functions
+            function sendOne() {
+                socket.emit("client_msg", {data : 1 } );
+            }
+            function sendZero() {
+                socket.emit("client_msg", {data : 0 } );
+            }
+            function listUsersOnServer() {
+                socket.emit("list_all_users", 1 );
+            }
+
+            function joinSecretRooom() {
+                i_rn = document.getElementById("room_name");
+                socket.emit("join_secret_room", i_rn.value );
+            }
+            function getSecretMessage() {
+                socket.emit("get_secret_message", 1 );
+            }
+            function listSecretRooms() {
+                socket.emit("list_all_rooms", 1 );
+            }
+        </script>
+  </body>
+</html>
