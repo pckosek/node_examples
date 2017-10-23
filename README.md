@@ -1,1 +1,1 @@
-Progressive examples on socket.io in the context of an express server on node js.
+Node and javascript examples.
