@@ -1,0 +1,1 @@
+hbs module in the context of a node server. Renders an index page

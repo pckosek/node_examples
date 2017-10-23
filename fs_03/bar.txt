@@ -1,0 +1,3 @@
+bar some text 1
+foobar  text 2
+some foobar text 3

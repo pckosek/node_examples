@@ -1,0 +1,3 @@
+some text 1
+foo text 2
+some foo text 3
