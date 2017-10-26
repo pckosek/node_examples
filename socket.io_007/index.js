@@ -22,14 +22,14 @@ app.get('/', function (req, res, next) {
 });
 
 // -------------- variables -------------- //
-var page_1 = generate_template('page1');
+var page1_hbs = generate_template('page1');
 
 // -------------- socket initialization -------------- //
 
 io.on('connection',function(socket){
     
-    socket.on('get_body', function(){
-        console.log('get body');
+    socket.on('req_new_body_str', function(){
+        console.log('req_new_body_str');
         generate_document(socket);
     })
 
@@ -39,9 +39,10 @@ io.on('connection',function(socket){
 // -------------- socket functions -------------- //
 function generate_document(socket) {
     var context = { title : 'My New Page' };
-    var p1 = page_1.run(context);
-    console.log(p1);
-    io.sockets.in(socket.id).emit('set_content',p1)
+    var html_str = page1_hbs.run(context);
+    console.log(html_str);
+
+    io.sockets.in(socket.id).emit('set_new_body_content',html_str)
 }
 
 

@@ -5,11 +5,11 @@
         <script>
             // CREATE THE SOCKET OBJECT AT LOAD TIME
             var socket = io.connect('https://user.tjhsst.edu/', { path: '/pk/socket.io/'  });
-            socket.emit('get_body')
+            socket.emit('req_new_body_str')
 
-            socket.on('set_content', function(data){
+            socket.on('set_new_body_content', function(html_str){
                 p = document.getElementById('body');
-                p.innerHTML = data;
+                p.innerHTML = html_str;
             });
             
             // --------- client JS functions
