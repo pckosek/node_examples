@@ -1,0 +1,39 @@
+<!doctype html>
+<html>
+    <head>
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.0.3/socket.io.js"></script>    
+        <script>
+            // CREATE THE SOCKET OBJECT AT LOAD TIME
+            var socket = io.connect('https://user.tjhsst.edu/', { path: '/pk/socket.io/'  });
+            socket.emit('get_body')
+
+            socket.on('set_content', function(data){
+                p = document.getElementById('body');
+                p.innerHTML = data;
+            });
+            
+            // --------- client JS functions
+            function sendOne() {
+                socket.emit("client_msg", {data : 1 } );
+            }
+            function sendZero() {
+                socket.emit("client_msg", {data : 0 } );
+            }
+            function listUsersOnServer() {
+                socket.emit("list_all_users", 1 );
+            }
+
+            function joinSecretRooom() {
+                i_rn = document.getElementById("room_name");
+                socket.emit("join_secret_room", i_rn.value );
+            }
+            function getSecretMessage() {
+                socket.emit("get_secret_message", 1 );
+            }
+            function listSecretRooms() {
+                socket.emit("list_all_rooms", 1 );
+            }
+        </script>        
+    </head>
+    <body id="body"></body>
+</html>
