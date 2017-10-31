@@ -91,26 +91,37 @@ app.get('/', function (req, res, next) {
 });
 
 
-app.get('/login', (req, res,next) => {
+// -------------- intermediary login helper -------------- //
+app.get('/login', function (req, res, next) {
     
-    var theCode = req.query.code // GET parameter
+    // THIS PAGE WAS CALLED WITH A GET PARAMETER 'code' BY OUR OAUTH HOST
+    var theCode = req.query.code 
     
+    // Construct options that will be used to generate a login token
     var options = {
         code: theCode,
         redirect_uri: ion_redirect_uri
      };
-    oauth2.authorizationCode.getToken(options, (error, result) => {
+
+    // ASYNCHRONOUSLY REQUEST A TOKEN FROM THE SERVER
+    oauth2.authorizationCode.getToken(options, function (error, result) {
         if (error) {
             console.log(error);
             return res.json('Authentication failed');
         }
+
+        // TURN THE RESULT INTO A TOKEN
         var token = oauth2.accessToken.create(result);
         
-        // preserve login through the token!!
+        // ATTACH THE TOKEN TO OUR COOKIE SESSION
         req.session.token = token;
-        console.log(req.session.token);
+        // console.log(req.session.token);
 
-        return res.json(token);
+        // DEBUG <<and massively insecurely>> display this token to the user 
+        // return res.json(token);
+
+        // Redirect authenticated user home
+        res.redirect('https://user.tjhsst.edu/pk');
     });
          
 });
