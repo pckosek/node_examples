@@ -1,0 +1,75 @@
+<!doctype html>
+<html>
+
+<head>
+
+  <link rel='stylesheet' href='/css/style.css'>
+
+</head>
+
+<body>
+    <div class="wrapper">
+      <div class="container">
+        <div class="content">
+          <ul>
+            <li>
+              <h2 class="section_title"></h2>
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+              <a id="link_1" href="javascript:void(0)">tempor incididunt ut labore</a>
+              et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+            </li>
+            <li>
+              <h2 class="section_title"></h2>
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+              <a id="link_2" href="javascript:void(0)">tempor incididunt ut labore</a>
+              et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+            </li>
+            <li>
+              <h2 class="section_title"></h2>
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+              <a id="link_3" href="javascript:void(0)">tempor incididunt ut labore</a>
+              et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+            </li>
+            <li>
+              <h2 class="section_title"></h2>
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+              <a id="link_4" href="javascript:void(0)">tempor incididunt ut labore</a>
+              et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+            </li>
+          </ul>
+          <br>
+        </div>
+      </div>
+    </div>
+
+    <script type="text/javascript" src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+    <script>
+    $( document ).ready(function() {
+        // link click function
+        $("#link_1").click(function(){
+            $("p").css("color", "red");
+        });        
+        $("#link_2").click(function(){
+            $("p").css("color", "black");
+        });        
+        $("#link_3").click(function(){
+            $.get( "someServerPage" )
+                .done(function( data ) {
+                    console.log( "string response generated on the server is: " + data );
+                });
+        });        
+        $("#link_4").click(function(){
+            $.get( "someBetterServerPage", { user_name : "fred" } )
+                .done(function( data ) {
+                    console.log( "string response generated on the server is: " + data );
+                });
+        });    
+
+
+        console.log( "page loaded and jQuery is ready" );
+        
+    });
+    </script>
+</body>
+
+</html>
