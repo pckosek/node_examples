@@ -1,0 +1,91 @@
+// ---------------- Exercise 1 ------------------- //
+CREATE TABLE students(student_id INT NOT NULL,student_name VARCHAR(100) NOT NULL, PRIMARY KEY(student_id))
+
+SHOW TABLES;
+
+SELECT * FROM students;
+
+DROP TABLE students;
+
+// ---------------- Exercise 2 ------------------- //
+CREATE TABLE students(student_id INT NOT NULL,student_name VARCHAR(100) NOT NULL, PRIMARY KEY(student_id))
+
+INSERT INTO students(student_id, student_name) VALUES (12345, "Thomas Jefferson");
+
+SELECT * FROM students;
+
+INSERT INTO students(student_id, student_name) VALUES (12345, "Thomas Jefferson");
+
+INSERT INTO students(student_id) VALUES (1000);
+
+INSERT INTO students(student_id, student_name, student_grade) VALUES (12345, "Thomas Jefferson", 11);
+
+DROP TABLE students;
+
+// ---------------- Exercise 3 ------------------- //
+
+CREATE TABLE students(student_id INT NOT NULL, student_f_name VARCHAR(100),  student_l_name VARCHAR(100) NOT NULL, PRIMARY KEY(student_id))
+
+INSERT INTO students(student_id, student_f_name,  student_l_name ) VALUES (1000, "Thomas", "Jefferson");
+
+SELECT * FROM students;
+
+INSERT INTO students(student_id, student_l_name ) VALUES (1001, "Washington");
+
+INSERT INTO students(student_id, student_f_name,  student_l_name ) VALUES (1002, "James", "Madison");
+
+INSERT INTO students(student_id, student_f_name,  student_l_name ) VALUES (1003, "George", "Jefferson");
+
+SELECT * FROM students;
+
+SELECT student_id FROM students;
+
+SELECT student_f_name FROM students;
+
+SELECT student_id, student_f_name FROM students;
+
+SELECT student_id, student_f_name FROM students WHERE student_id > 1000;
+
+SELECT student_id, student_f_name FROM students WHERE student_l_name = "Jefferson";
+
+// ---------------- Exercise 4 ------------------- //
+
+INSERT INTO students(student_id, student_f_name,  student_l_name ) VALUES (1004, "Benjamin", "Harrison"), (1005, "William", "Harrison");
+
+SELECT * FROM students;
+
+// ---------------- Exercise 5 ------------------- //
+
+UPDATE students SET student_L_name = "Roosevelt" WHERE student_id > 1001;
+
+SELECT * FROM students;
+
+// ---------------- Exercise 6 ------------------- //
+
+INSERT INTO students(student_id, student_f_name,  student_l_name ) VALUES (1005, "William", "Harrison"), (1006, "Grover", "Cleveland") ON DUPLICATE KEY UPDATE student_id = VALUES(student_id), student_f_name = VALUES(student_f_name), student_l_name = VALUES(student_l_name);
+
+// ---------------- Exercise 7 ------------------- //
+
+DELETE FROM students WHERE student_id = 1000;
+
+SELECT * FROM students;
+
+// ---------------- Exercise 8 ------------------- //
+
+SELECT * FROM students WHERE student_f_name LIKE 'G%';
+
+SELECT * FROM students WHERE student_f_name LIKE 'G%' AND student_id > 1004
+
+DELETE FROM students WHERE student_f_name LIKE 'G%' AND student_id > 1004
+
+SELECT * FROM students;
+
+UPDATE students SET student_f_name = "BOB" WHERE student_l_name LIKE '%oo%'
+
+SELECT * FROM students;
+
+// ---------------- Exercise 9 ------------------- //
+
+SELECT COUNT(*) FROM students;
+
+SELECT COUNT(*) FROM students WHERE student_l_name LIKE '%oo%'
