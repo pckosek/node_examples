@@ -1,3 +1,3 @@
-Oauth2 Example. Setup authorization here
+Oauth2 Example. Version without handlebars to reduce obfuscation.
 
-https://ion.tjhsst.edu/login?next=/oauth/applications/
+https://ion.tjhsst.edu/oauth/applications/
