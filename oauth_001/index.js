@@ -56,7 +56,8 @@ var oauth2 = simpleoauth2.create({
   }
 });
 
-// This is the link
+// This is the link that will be used later on for logging in. This URL takes
+// you to the ION server and asks if you are willing to give read permission to ION.
 
 var authorizationUri = oauth2.authorizationCode.authorizeURL({
     scope: "read",
