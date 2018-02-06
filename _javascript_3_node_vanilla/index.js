@@ -1,20 +1,20 @@
 #!/usr/bin/nodejs
 
-// // -------------- load packages -------------- //
-
+// -------------- load packages -------------- //
 // INITIALIZATION STUFF
+
 var express = require('express')
 var app = express();
 
 
-// // -------------- express initialization -------------- //
-
+// -------------- express initialization -------------- //
 // PORT SETUP - NUMBER SPECIFIC TO THIS SYSTEM
+
 app.set('port', process.env.PORT || 8080 );
 
 
-// // -------------- express 'get' handlers -------------- //
-// // These 'getters' are what fetch your pages
+// -------------- express 'get' handlers -------------- //
+// These 'getters' are what fetch your pages
 
 app.get('/', function(req, res){
     res.send('hola');
