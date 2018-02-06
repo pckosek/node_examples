@@ -1,8 +1,10 @@
 #!/usr/bin/nodejs
 
+
 // -------------- load packages -------------- //
 var express = require('express')
 var app = express();
+
 
 // -------------- express initialization -------------- //
 app.set('port', process.env.PORT || 8080 );
@@ -11,10 +13,9 @@ app.set('port', process.env.PORT || 8080 );
 // -------------- variable definition -------------- //
 // Just to be nosy
 var visitorCount = 0; 
-
-
 // See the value of the constant we are going to use
 console.log(__dirname)
+
 
 // -------------- express 'get' handlers -------------- //
 // These 'getters' are what fetch your pages
@@ -28,12 +29,10 @@ app.get('/', function(req, res){
     res.sendFile(__dirname+ '/index.html');
 });
 
-
 app.get('/just_a_string', function(req, res){
     // res.send just sends a string
     res.send('just a string for you.')
 })
-
 
 
 // -------------- listener -------------- //
