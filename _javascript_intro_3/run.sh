@@ -1,2 +1,2 @@
 #!/bin/sh
-node /web/projects/pk/public/index.js > info.log
+node index.js > info.log
