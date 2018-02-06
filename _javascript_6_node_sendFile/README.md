@@ -1,6 +1,6 @@
-## Node Server with console logging
+## Node Server that sends a file instead of a string
 Installation instructions are as before
 
-### The intent of this server is to demonstrate a simple page counter.
+### Use the res.sendFile with the full path (which is made easire by using __dirname)
 
-**You will see the counter increment on your server each time a user lands at the home page.** _Note that the number shown is not a live reference, and requires a page reload to increment._
+**Note that you can make changes to the html files and see them without needing to restart the server.** _Only server changes to side scripts require a server restart to take effect._

@@ -23,10 +23,16 @@ app.get('/', function(req, res){
     visitorCount++;
     console.log(visitorCount);
 
-    // sendFile sends the actual html
+    // sendFile sends the actual html files
     // __dirname is a string that corresponds to the current directory location
     res.sendFile(__dirname+ '/index.html');
 });
+
+
+app.get('/just_a_string', function(req, res){
+    // res.send just sends a string
+    res.send('just a string for you.')
+})
 
 
 
