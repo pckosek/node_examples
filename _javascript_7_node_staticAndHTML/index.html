@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head></head>
+<body>
+
+<!--divs are generic containers. They are block elements-->
+<!--they fill up the page, or as much space as they can-->
+<div class="container wrapper">
+  <div id="top">
+    
+    <!--headers go in size from h1 to h6-->
+    <h1 id="h1_title">Header 1</h1>
+    <p>Paragraph with an 
+    
+    <!--spans are inline elements -->
+    <!--inline elements take up only as much space as they need-->
+    <span>inline element</span>.
+    This paragraph also contains a forced
+    
+    <!--br creates newlines-->
+    <br>
+    newline. Note that the <br>newline is a function of the <br> element.
+    </p>
+  </div>
+  
+  <div class="wrapper">
+   <div id="menu">
+       
+     <!--ul are unordered lists, unordered meaning not numbered-->
+     <!--uls are commonly used in css formatting. Ol's are enumerated-->
+     <ul id="menulist">
+    
+       <!--li's are list items, for both ul and ol elements-->
+       <li>List Item #1
+       <li>List Item #2
+       <li>List Item #3
+     </ul>
+    </div>
+   </div>
+   
+  <div id="content-main">
+    <p>This paragraph contains 
+      
+      <!--the a tag is a link-->
+      <a href="https://www.google.com">links</a>. You can link to pages within 
+      
+      <!--links within your own site need not have the full address-->
+      <a href="formatting">your own site </a>, 
+
+      or you can have 'links' that 
+      
+      <!--this would be used for overriding the onclick at a later point-->
+      <a id="clickCatch" href="javascript:void(0)">do nothing</a>.
+    </p>
+    
+    <!--the onclick method of an element calls javascript when clicked-->
+    <button type=button onclick="doSomething()">Click ME</button>.
+    
+    <p>Submit 'buttons' are used for creating forms and should be avoided.
+    </p>
+  </div>   
+</div>
+
+<script type="text/javascript" src="js/myClientScript.js"></script>
+</body>
+</html>
