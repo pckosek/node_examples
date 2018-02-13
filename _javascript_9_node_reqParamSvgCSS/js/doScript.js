@@ -1,16 +1,8 @@
-// ---------- UNIX TIMER FUNCTIONS ---------- //
+// THE ALASKA REMOVER!!!
 
-function startUnixTimer() {
-	timer_2 = setInterval(displayUnixTimer, 100);
+function doClick() {
+    alaska.style['fill'] = 'none';
 }
 
-function stopUnixTimer() {
-	clearInterval(timer_2);
-}
-
-function displayUnixTimer() {
-	
-	DisplayBox.innerHTML = Date.now();
-}
-
-var DisplayBox = document.getElementById('textField_1');
+var alaska = document.getElementById('AK');
+alaska.onclick = doClick;
