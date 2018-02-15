@@ -15,7 +15,6 @@ app.set('port', process.env.PORT || 8080 );
 // -------------- serve static folders -------------- //
 app.use('/js', express.static(path.join(__dirname, 'js')))
 app.use('/css', express.static(path.join(__dirname, 'css')))
-app.use('/img', express.static(path.join(__dirname, 'img')))
 
 
 // -------------- express 'get' handlers -------------- //
