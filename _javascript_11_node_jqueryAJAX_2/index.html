@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="css/nav_bar.css">
+    <link rel="stylesheet" type="text/css" href="css/states.css">
+    
+    <!--put scripts in header with tag async-->
+    <script type="text/javascript" src="js/doScript.js" async></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js" async></script>
+</head>
+
+<body>
+<div class="top-nav">
+    <ul class="top-horizontal">
+      <li class="top-menu lefty"><a href="javascript:void(0)">TJHSST</a></li>
+      <li class="top-menu lefty"><a href="javascript:void(0)">Home</a></li>
+      <li class="top-menu lefty"><a href="javascript:void(0)">Labs</a></li>
+      <li class="top-menu righty"><a href="javascript:void(0)">Settings</a></li>
+    </ul>
+</div>
+<div class="content">
+    <div class="col-2">
+        <p class="interactable">
+            Flip the coin!
+            <button id="btn_1" type="button" onclick="flipCoin()">Flip</button>
+        </p>
+    </div>
+    <div class="col-2">
+        <p class="interactable">
+            Some AJAX requests:
+            <button id="btn_2" type="button" onclick="someAJAX_1()">ONE</button>&nbsp;
+            <button id="btn_3" type="button" onclick="someAJAX_2()">ANOTHER</button>
+        </p>
+    </div>
+    <div class="col-2">
+        <p class="interactable">
+            Name
+            <input type="text "id="in_1"></input>&nbsp;
+            <button id="btn_4" type="button" onclick="someAJAX_3()">Name it!</button>
+        </p>
+    </div>
+    <div class="col-2">
+        <p class="interactable">
+            Click 
+            <a id="jQueryLink" href="javascript:void(0)">Here!</a>
+        </p>
+    </div>    
+    <div class="col-1">
+        <p>
+           Result is: <span id="res"></span>  
+        </p>
+    </div>
+</div>
+
+
+</body>
+</html>
