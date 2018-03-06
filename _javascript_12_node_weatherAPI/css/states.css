@@ -1,0 +1,11 @@
+.displayContainer_1 {
+    margin: -8px;
+    float: right;
+    padding: 0;
+    width: 400px;    
+}
+.displayContainer_1 svg path:hover {
+    fill:none;
+    stroke:black;
+    pointer-events:all;
+}

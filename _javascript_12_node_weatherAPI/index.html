@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="css/nav_bar.css">
+    <link rel="stylesheet" type="text/css" href="css/states.css">
+    
+    <!--put scripts in header with tag async-->
+    <script type="text/javascript" src="js/clientScript.js" async></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js" async></script>
+</head>
+
+<body>
+<div class="top-nav">
+    <ul class="top-horizontal">
+      <li class="top-menu lefty"><a href="javascript:void(0)">TJHSST</a></li>
+      <li class="top-menu lefty"><a href="javascript:void(0)">Home</a></li>
+      <li class="top-menu lefty"><a href="javascript:void(0)">Labs</a></li>
+      <li class="top-menu righty"><a href="javascript:void(0)">Settings</a></li>
+    </ul>
+</div>
+<div class="content">
+    <div class="col-2">
+        <p class="interactable">
+            Location
+            <input type="text "id="in_1" placeholder="Zip Code"></input>&nbsp;
+            <button id="btn_4" type="button" onclick="clientGetWeather()">Get Weather!</button>
+        </p>
+    </div>
+    <div class="col-2">
+        <p class="interactable">
+            Weather:
+            <ul class="weather">
+                <li id="city"  class="weather_res">City</li>
+                <li id="temp"  class="weather_res">Temperature</li>
+                <li id="press" class="weather_res">Pressure</li>
+            </ul>
+        </p>
+    </div>
+</div>
+
+
+</body>
+</html>
