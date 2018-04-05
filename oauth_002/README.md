@@ -1,3 +1,5 @@
-Oauth2 Example. Setup authorization here
+Oauth2 Example. 
 
-https://ion.tjhsst.edu/login?next=/oauth/applications/
+Before any of this works, you have to register your Oauth agreement with the authenticating server. Do it here:
+
+https://ion.tjhsst.edu/oauth/applications/

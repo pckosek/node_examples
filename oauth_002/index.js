@@ -28,8 +28,8 @@ app.use(cookieSession({
 // -------------- variable initialization -------------- //
 
 // OAUTH2 Stuff
-var ion_client_id = 'asdfhjaksdfalksdjfhalskdjfhalsdjkfha';
-var ion_client_secret = 'asdfhjasdflajkhfasjdhfaslkjhfejfhasefuhasdfjhlaseufhaSeflkuahsedfkljnadkjfhasdflkajshdfalkjhfjdhsaflkajshdfjheuuhuhuhuuhuhuh';
+var ion_client_id = 'theshortonefasdfasdfalksdjfhalskdjfhalsdjkfha';
+var ion_client_secret = 'thelongonekhfasjdhfaslkjhfejfhasefuhasdfjhlaseufhaSeflkuahsedfkljnadkjfhasdflkajshdfalkjhfjdhsaflkajshdfjheuuhuhuhuuhuhuh';
 var ion_redirect_uri = 'https://user.tjhsst.edu/pk/login';
 
 var oauth2 = simpleoauth2.create({
@@ -66,7 +66,7 @@ app.get('/', function (req, res, next) {
     req.session.views = (req.session.views || 0) + 1;
     
     if (typeof req.session.token != 'undefined') {
-        // IF THE USER HAS NOT LOGGED IN!
+        // THERE IS A TOKEN IN THE COOKIE: THE USER HAS ALREADY LOGGED IN!
         var access_token = req.session.token.token.access_token;
         console.log(access_token);
 
