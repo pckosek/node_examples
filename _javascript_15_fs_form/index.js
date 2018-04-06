@@ -12,12 +12,11 @@ var fs = require('fs');
 app.set('port', process.env.PORT || 8080 );
 app.set('view engine', 'hbs');
 
-
 // -------------- serve static folders -------------- //
 app.use('/js', express.static(path.join(__dirname, 'js')))
 app.use('/css', express.static(path.join(__dirname, 'css')))
 
-
+// -------------- variables -------------- //
 visitCounter = 0;
 
 // -------------- express 'get' handlers -------------- //
@@ -28,9 +27,10 @@ app.get('/', function(req, res){
 
 
 app.get('/a_word', function(req, res){
+    visitCounter++;
     chars = fs.readFileSync(__dirname + '//resources//enable1.txt').toString();
     lines = chars.split('\n');
-    res.send( lines[100] );
+    res.send( lines[visitCounter] );
 });
 
 
@@ -43,7 +43,6 @@ app.get('/submit_userpass', function(req, res){
     out['pass'] = req.query.password;
     res.send(out);
 });
-
 
 
 //user requested some other page beneath root, i.e. https://user.tjhsst.edu/pckosek/blah
