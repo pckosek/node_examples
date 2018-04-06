@@ -8,10 +8,6 @@ var hbs = require('hbs');
 var request = require('request');
 var fs = require('fs');
 
-//custom packages
-var states = require('./serverJS/statesInfo.js')
-var util = require('./serverJS/myUtilities.js')
-
 // -------------- express initialization -------------- //
 app.set('port', process.env.PORT || 8080 );
 app.set('view engine', 'hbs');
