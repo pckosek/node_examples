@@ -3,10 +3,12 @@ import json
 
 # read input buffer
 input_string = "".join(map(chr, sys.stdin.buffer.read()))
-# print(input_string)
-input_json   = json.loads(input_string)
 
-out = "Hello to you, {}, from python!!".format(input_json['user'])
+input_json      = json.loads(input_string)
+reversed_string = input_json[::-1]
 
-# write output 
+# our python operation
+out = "The reversed version of {} is {}, courtesy of python!!".format(input_json, reversed_string)
+
+# output back to node
 sys.stdout.write(out);
