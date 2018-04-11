@@ -5,7 +5,7 @@ var express = require('express');
 var path = require('path');
 var hbs = require('hbs');
 
-// we'll use this for python
+// this is so that we can extract form parameters in the post methods
 var bodyParser = require('body-parser')
 
 // we'll use this for python
