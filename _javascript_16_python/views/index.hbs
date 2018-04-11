@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="css/nav_bar.css">
+    <link rel="stylesheet" type="text/css" href="css/form_format.css">
+
+    <!--put scripts in header with tag async-->
+    <script type="text/javascript" src="js/clientScript.js" async></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js" async></script>
+</head>
+
+<body>
+<div class="top-nav">
+    <ul class="top-horizontal">
+      <li class="top-menu lefty"><a href="javascript:void(0)">TJHSST</a></li>
+      <li class="top-menu lefty"><a href="javascript:void(0)">Home</a></li>
+      <li class="top-menu lefty"><a href="javascript:void(0)">Labs</a></li>
+      <li class="top-menu righty"><a href="javascript:void(0)">Settings</a></li>
+    </ul>
+</div>
+<div class="content">
+    <div>
+        <form id="ball_form" action="">
+        <fieldset>
+            <legend>The Ball</legend>
+            
+              <input type="radio" name="shape" value="round" id="shape_round">
+              <label for="shape_round">round</label>
+            
+              <input type="radio" name="shape" value="square" id="shape_square">
+              <label for="shape_square">square</label>
+            
+              <input type="radio" name="shape" value="dodecahedron" id="shape_dodecahedron">
+              <label for="shape_dodecahedron">dodecahedron</label>
+              <button class="btn" type="submit" ><span>Submit For Inspection</span></button>
+         </fieldset>
+         </form>
+	</div>
+
+    <div>
+        <form id="user_form" action="">
+        <fieldset>
+            <legend>The User</legend>
+            
+			<p>
+				<label>Username: </label>
+				<input type="text" name="username" value="" placeholder="pick something nice"/>
+			</p>
+			<p>
+				<label>Password: </label>
+				<input type="password" name="password" />
+			</p>
+			<button class="btn" type="button" onclick="usernameSubmitForm()"><span>Submit For Inspection</span></button>
+         </fieldset>
+         </form>
+	</div>
+</div>
+
+
+</body>
+</html>
