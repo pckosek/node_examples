@@ -34,6 +34,9 @@ app.get('/a_word', function(req, res){
 });
 
 
+// this get handler doesn't actually 'make a page'
+// We are ONLY using it as a functional interface with our server!!!!
+//      so, in effect - this is a proxy for some password handler
 app.get('/submit_userpass', function(req, res){
     console.log(Object.keys(req.query))
     console.log(req.query)
