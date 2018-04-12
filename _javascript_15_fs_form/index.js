@@ -34,9 +34,11 @@ app.get('/a_word', function(req, res){
 });
 
 
-// this get handler doesn't actually 'make a page'
-// We are ONLY using it as a functional interface with our server!!!!
-//      so, in effect - this is a proxy for some password handler
+//   this get handler doesn't actually 'make a page' in the traditional sense.
+//   We are ONLY using it as a functional interface with our server!!!! 
+//   AJAX calls this get handler, it produces some result (in this case just json) and 
+//   it is presumed that the client will sort out the result and act accordingly
+//      in short - this is a functional interface with the server, called by AJAX
 app.get('/submit_userpass', function(req, res){
     console.log(Object.keys(req.query))
     console.log(req.query)
