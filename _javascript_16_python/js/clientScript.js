@@ -22,7 +22,7 @@ function submitBallForm() {
     // perform ajax request
      $.ajax({
             url: "process_ball_form",       // goes to https://user.tjhsst.edu/pckosek/process_ball_form
-            type: "post",
+            type: "get",
             data:  $('#ball_form').serialize(),
             success: function(response) {
                 displayResult(response);
