@@ -41,6 +41,7 @@ app.get('/submit_userpass', function(req, res){
     out = {};
     out['user'] = req.query.username;
     out['pass'] = req.query.password;
+    out['s']    = 1;
     res.send(out);
 });
 

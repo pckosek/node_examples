@@ -19,10 +19,6 @@ function usernameSubmitForm () {
     // get the form as a dom js element. Used for the validation.
     user_form_element = document.getElementById('user_form');
 
-    // get the form as a jquery element. This is almost the same as above - but 
-    // it is easier to serialize down in the ajax request.
-    jquser_form_element = $('#user_form');
-    
     // VALIDATE FORM
     // - RETURN (exit function) IF THE FORM IS INCOMPLETE
     if (user_form_element.username.value==="") {
@@ -33,12 +29,15 @@ function usernameSubmitForm () {
         return false;
     } 
         
+    // make an asychronous request to the url:
+    // https://user.tjhsst.edu/pckosek/submit_userpass?username=1423&password=foobar
     $.ajax({
-        url: "submit_userpass",
-        type: "GET",
-        data: $(jquser_form_element).serialize(),
+        url: "submit_userpass",                 // goes to https://user.tjhsst.edu/pckosek/submit_userpass
+        type: "GET",                            // specify that this is going to be a get request
+        data: $('#user_form').serialize(),      // this line uses jQuery to extract from the form a string like: username=1423&password=foobar
         success: function(response) {
-            console.log(response);
+            // the function we are in is called when the server responds with data
+            console.log(response);              
         }            
     });        
             

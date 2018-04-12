@@ -32,7 +32,11 @@
             
               <input type="radio" name="shape" value="dodecahedron" id="shape_dodecahedron">
               <label for="shape_dodecahedron">dodecahedron</label>
+
+              <!-- DO NOT DO THIS!!! SUBMITs ARE GENERALLY NOT AS FLEXIBLE AS type="button" -->
               <button class="btn" type="submit" ><span>Submit For Inspection</span></button>
+              <!-- DO NOT DO THIS!!! SUBMITs ARE GENERALLY NOT AS FLEXIBLE AS type="button" -->
+
          </fieldset>
          </form>
 	</div>
@@ -41,18 +45,17 @@
         <form id="user_form" action="">
         <fieldset>
             <legend>The User</legend>
-            
-			<p>
-				<label>Username: </label>
-				<input type="text" name="username" value="" placeholder="pick something nice"/>
-			</p>
-			<p>
-				<label>Password: </label>
-				<input type="password" name="password" />
-			</p>
-			<button class="btn" type="button" onclick="usernameSubmitForm()"><span>Submit For Inspection</span></button>
-         </fieldset>
-         </form>
+    			<p>
+    				<label>Username: </label>
+    				<input type="text" name="username" value="" placeholder="pick something nice"/>
+    			</p>
+    			<p>
+    				<label>Password: </label>
+    				<input type="password" name="password" />
+    			</p>
+    			<button class="btn" type="button" onclick="usernameSubmitForm()"><span>Submit For Inspection</span></button>
+          </fieldset>
+        </form>
 	</div>
 </div>
 
