@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="css/nav_bar.css">
+    <link rel="stylesheet" type="text/css" href="css/form_format.css">
+
+    <!--put scripts in header with tag async-->
+    <script type="text/javascript" src="js/clientScript.js" async></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js" async></script>
+    <script src="https://code.jquery.com/ui/1.9.1/jquery-ui.js" type="text/javascript"></script>
+</head>
+
+<body>
+<div class="top-nav">
+    <ul class="top-horizontal">
+      <li class="top-menu lefty"><a href="https://tjhsst.fcps.edu/">TJHSST</a></li>
+      <li class="top-menu lefty"><a href="https://user.tjhsst.edu/cvupload/">Home</a></li>
+      {{#if logged_in}}
+      <li class="top-menu righty"><a href="logout">Logout</a></li>
+      <li class="top-menu righty"><span>Hello, {{user_name}}</span></li>
+      {{else}}
+      <li class="top-menu righty"><a href="{{login_link}}">Login</a></li>
+      {{/if}}
+    </ul>
+</div>
+<div class="content">
+    {{#if logged_in}}    
+    <form id="flower_form" action="">
+    <fieldset class="uploader">
+        <legend>Upload</legend>
+
+            <label class="notify_class" id="flower_chooser">
+            <span>Choose a flower type</span>
+            <select name="image_class" id="flower_select">
+                {{#each flowers}}
+                <option value="{{this}}">{{this}}</option>
+                {{/each}}
+            </select>
+            </label>
+            
+          <label class="notify_class" id="image_chooser">
+          <input type="file" name="image_file" id="f_upload">
+          </label>
+          
+          <button id="upload_button" class="btn" type="button" onclick="submitFlowerForm()"><span>Upload Image</span></button>
+    <div id="loader_display" class="null"></div>
+    <span>
+        <em>Server response:</embed>
+    </span>
+    <span id="server_response"></span>
+    </fieldset>
+    </form>
+    {{else}}
+    <div class="col-1">
+        <h3>This page provides an interface to upload images to the Computer Vision image repository</h3>
+        <h4><emph>you must be logged in to submit images</emph></h4>
+    </div>
+    {{/if}}
+</div>
+
+</body>
+</html>
