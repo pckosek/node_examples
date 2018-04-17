@@ -26,9 +26,6 @@ app.use(fileUpload(
     {limits: { fileSize: 10 * 1024* 1024}}
 ));
 
-// -------------- multer setup -------------- //
-// var upload = multer({dest: __dirname});
-
 
 // -------------- bodyParser setup -------------- //
 app.use(bodyParser.urlencoded({ extended: false})); 
@@ -109,13 +106,9 @@ app.get('/', function(req, res){
 
 // FORM HANDLER
 app.post('/process_form', function(req, res){
-    console.log('1');
     if (!req.files) {
-        console.log('2');
         return res.status(400).send('no file uploaded');
     }
-    
-    console.log(req.session.uid);
     
     var image_file      = req.files.image_file;
     var image_file_name = req.files.image_file.name;
@@ -127,6 +120,8 @@ app.post('/process_form', function(req, res){
     var now         = new Date();
     var date_stamp  = dateFormat(now, 'yymmdd_HHMMss');    
     var file_string = 'date_' + date_stamp + '_uid_' + req.session.uid + image_file_ext; 
+
+    // construct complete file path
     image_file_path = path.join(__dirname, 'images', image_class, file_string );
     
     // THE FILE NAME IS THE DATESTAMP PLUS THE USER ID
