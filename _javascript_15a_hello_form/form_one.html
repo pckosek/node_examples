@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+    <!--LOAD JQUERY-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js" async></script>
+
+</head>
+
+<body>
+<div>
+    <form id="my_form">
+      <input type="text" name="shape" value="this is the value">
+    </form>
+
+    <!--STEP 2 SUBMIT THE FORM-->
+    <button type="button" onclick="doForm()">Submit For Inspection</button>
+</div>
+<div>
+    <p id="result"></p>
+</div>
+
+
+<script type="text/javascript">
+
+    // STEP 3, THE FORM HANDLING JAVASCRIPT
+    function doForm() {
+
+        // STEP 4, PERFORM AJAX REQUEST
+    	 $.ajax({
+                url: "process_form_one",            // goes to https://user.tjhsst.edu/pckosek/process_form
+                type: "get",                        // use a 'get' type request
+                data:  $('#my_form').serialize(),   // convert the form into a key-value pair
+                success: function(response) {
+    
+                    // STEP 7 - DEAL WITH THE RESPONSE ON THE CLIENT
+
+                    // update the display
+                    r = document.getElementById("result");
+                    r.innerHTML = response;
+                }            
+            });
+    }
+            
+</script>
+</body>
+</html>
