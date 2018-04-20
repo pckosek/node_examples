@@ -1,3 +1,3 @@
-## The following are example mysql commands. Run them iteratively
+## This example shows how to run a sql script.
 
-These examples should be run at the mysql prompt. They are intended to help show you what the database is doing.
+This will allow you to 'prewrite' sql commands, and then run as a batch - all at once! This functionality will be immensely useful if you have larger or complicated databases.
