@@ -191,7 +191,7 @@ SELECT * FROM students;
 
 DROP TABLE students;
 
-# ---------------- Exercise 6 ------------------- #
+# ---------------- Exercise 7 ------------------- #
 #
 #  Using WHERE to conditionally select
 #
@@ -223,7 +223,7 @@ SELECT id, s_name FROM students WHERE id<3
 
 DROP TABLE students;
 
-# ---------------- Exercise 6 ------------------- #
+# ---------------- Exercise 8 ------------------- #
 #
 #  Using WHERE and LIKE to conditionally select
 #
@@ -244,5 +244,64 @@ SELECT id, s_name FROM students WHERE s_name LIKE 'J%';
 
 #  - here, select [id & names] pairs where home ends in A
 SELECT id, s_name FROM students WHERE home LIKE '%A';
+
+DROP TABLE students;
+
+# ---------------- Exercise 9 ------------------- #
+#
+#  UPDATE statements
+#
+# ---------------------
+
+# create a new table
+CREATE TABLE students(id INT, s_name VARCHAR(100), home VARCHAR(100), PRIMARY KEY(id))
+
+# add a couple rows
+INSERT INTO students(id, s_name, home) VALUE (1, 'George', 'VA');
+INSERT INTO students(id, s_name, home) VALUE (2, 'John', 'MA');
+INSERT INTO students(id, s_name, home) VALUE (3, 'Thom', 'VA');
+INSERT INTO students(id, s_name, home) VALUE (4, 'James', 'VA');
+INSERT INTO students(id, s_name, home) VALUE (5, 'James', 'VA');
+
+# update the name of student 3 from Thom to Thomas
+UPDATE students SET s_name = "Thomas" WHERE id = 3;
+
+# update the home from VA to Virginia
+UPDATE students SET home = "Virginia" WHERE home = 'VA';
+
+DROP TABLE students;
+
+
+# ---------------- Exercise 9A ------------------- #
+#
+#  CAUTION - UPDATE or INSERT if data doesn't exist (upsert)
+#   a particular problem comes up when you don't know whether to insert
+#   or update. This is how we solve it.
+#
+# ---------------------
+
+# create a new table
+CREATE TABLE students(id INT, s_name VARCHAR(100), home VARCHAR(100), PRIMARY KEY(id))
+
+# add a couple rows
+INSERT INTO students(id, s_name, home) VALUE (1, 'George', 'VA');
+INSERT INTO students(id, s_name, home) VALUE (2, 'John', 'MA');
+INSERT INTO students(id, s_name, home) VALUE (3, 'Thom', 'VA');
+INSERT INTO students(id, s_name, home) VALUE (4, 'James', 'VA');
+
+# show all of the values
+SELECT * FROM students;
+
+# upsert james into spot 5 (this time it does the insert op)
+INSERT INTO students(id, s_name, home ) VALUES (5, "James", "VA") ON DUPLICATE KEY UPDATE id = VALUES(id), s_name = VALUES(s_name), home = VALUES(home);
+
+# show all of the values
+SELECT * FROM students;
+
+# upsert james into spot 5 (this time it does the update)
+INSERT INTO students(id, s_name, home ) VALUES (5, "James", "VA") ON DUPLICATE KEY UPDATE id = VALUES(id), s_name = VALUES(s_name), home = VALUES(home);
+
+# show all of the values
+SELECT * FROM students;
 
 DROP TABLE students;
