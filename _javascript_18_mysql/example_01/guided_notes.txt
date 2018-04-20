@@ -1,0 +1,248 @@
+ # SQL COMMAND PROMPT GUIDED NOTES
+
+# ---------------- Exercise 1 ------------------- #
+#
+#  Basic Functionality, create and describe table
+#
+# ---------------------
+
+# create a table named students.
+# 	this table has a single field named id,
+# 	and id is of type int
+CREATE TABLE students(id INT);
+
+# show all of our tables
+SHOW TABLES;
+
+# describe our table to us
+DESC students;
+
+# delete our table
+DROP TABLE students;
+
+# ---------------- Exercise 2 ------------------- #
+#
+#  Basic Functionality, CREATE table, INSERT data
+#
+# ---------------------
+
+# create a table named students.
+CREATE TABLE students(id INT);
+
+# show all of the data in students
+SELECT * FROM students;
+
+# add a single value into our table
+#   this adds the int value 123 into the
+# 	column 'id' within the table students
+INSERT INTO students(id) VALUE (123);
+
+# show all of the data in students now that data has been added
+SELECT * FROM students;
+
+# add another data point into this table
+INSERT INTO students(id) VALUE (1234);
+
+# display again
+SELECT * FROM students;
+
+DROP TABLE students;
+
+
+# ---------------- Exercise 3 ------------------- #
+#
+#  Create a table with two data fields
+#
+# ---------------------
+
+# create a table named students with columns
+#	id (which is an int) and s_name (which is a varchar)
+CREATE TABLE students(id INT, s_name VARCHAR(100));
+
+# add add a student and a name into this table
+INSERT INTO students(id, s_name) VALUE (1, 'bob');
+
+# look at our data now
+SELECT * FROM students;
+
+# add add another student
+INSERT INTO students(id, s_name) VALUE (2, 'mary');
+
+# observe what your table looks like now.
+SELECT * FROM students;
+
+DROP TABLE students;
+
+
+# ---------------- Exercise 3A ------------------- #
+#
+#  CAUTION - inserted elements are just rows and not unique by default!
+#
+# ---------------------
+
+# Create table as before
+CREATE TABLE students(id INT, s_name VARCHAR(100));
+
+# add three students into this table
+INSERT INTO students(id, s_name) VALUE (1, 'bob');
+INSERT INTO students(id, s_name) VALUE (2, 'paul');
+INSERT INTO students(id, s_name) VALUE (1, 'frank');
+INSERT INTO students(id, s_name) VALUE (2, 'frank');
+
+# look at the table now
+#  - note that the insert command is just adding additional rows
+SELECT * FROM students;
+
+# This table structure can be a problem if you wanted to select 
+#   a student by their student id
+#  - notice that multiple ids are returned in each of these queries
+SELECT s_name FROM students WHERE id = 1;
+SELECT id FROM students WHERE s_name = 'frank';
+
+DROP TABLE students;
+
+
+# ---------------- Exercise 4 ------------------- #
+#
+#  Create table with PRIMARY KEYS
+#
+# ---------------------
+
+# construct our table this time with the same two parameters,
+# 	id (an int) and s_name (a varchar), but this time specify
+#   that id is the primary key
+#	- A PRIMARY KEY is a specification that the indicated column
+#     MUST be unique and CANNOT be NULL
+CREATE TABLE students(id INT, s_name VARCHAR(100), PRIMARY KEY(id))
+
+# add bob again
+INSERT INTO students(id, s_name) VALUE (1, 'bob');
+
+# what what happens when you try to add larry with bob's key!
+INSERT INTO students(id, s_name) VALUE (1, 'larry');
+
+# clearly larry wasn't added.
+SELECT * FROM students;
+
+# also, watch what happens when we try tio insert larry without a key.
+# (it fails)
+INSERT INTO students(s_name) VALUE ('larry');
+
+SELECT * FROM students;
+
+DROP TABLE students;
+
+
+# ---------------- Exercise 5 ------------------- #
+#
+#  Create table with NOT NULL keys
+#
+# ---------------------
+
+# In the previous table intialization (repeated in the line below), s_name IS allowed to be NULL (by default)
+CREATE TABLE students(id INT, s_name VARCHAR(100), PRIMARY KEY(id))
+
+# this allows us to add students with or without names
+INSERT INTO students(id, s_name) VALUE (1, 'larry');
+INSERT INTO students(id) VALUE (2) 
+
+# here - you can see that student 2 does not have a name.
+#  this can be annoying if you actually want him or her to have a name!
+SELECT * FROM students;
+
+# SO - let's get rid of this table and make one with NOT NULL s_name
+DROP TABLE students;
+CREATE TABLE students(id INT, s_name VARCHAR(100) NOT NULL, PRIMARY KEY(id))
+
+# when we try to add a student without a name this time, we get an error
+INSERT INTO students(id, s_name) VALUE (1, 'larry');
+INSERT INTO students(id) VALUE (2) 
+
+DROP TABLE students;
+
+
+# ---------------- Exercise 6 ------------------- #
+#
+#  DELETE rows from the table
+#
+# ---------------------
+
+# create a table as before
+CREATE TABLE students(id INT, s_name VARCHAR(100), PRIMARY KEY(id))
+
+# add several rows. We're going to do stuff with them
+INSERT INTO students(id, s_name) VALUE (1, 'larry');
+INSERT INTO students(id, s_name) VALUE (2, 'mary');
+INSERT INTO students(id, s_name) VALUE (5, 'paul');
+INSERT INTO students(id, s_name) VALUE (102, 'chuck');
+INSERT INTO students(id, s_name) VALUE (103, 'chuck');
+
+# view the table
+SELECT * FROM students;
+
+# delete a student by id, verify that mike is gone
+DELETE FROM students where id=100
+SELECT * FROM students;
+
+# You do not have to delete by the primary key.
+#  - notice that this deletes two rows
+DELETE FROM students where s_name='chuck'
+SELECT * FROM students;
+
+DROP TABLE students;
+
+# ---------------- Exercise 6 ------------------- #
+#
+#  Using WHERE to conditionally select
+#
+# ---------------------
+
+# create a new table
+CREATE TABLE students(id INT, s_name VARCHAR(100), home VARCHAR(100), PRIMARY KEY(id))
+
+# add a couple rows
+INSERT INTO students(id, s_name, home) VALUE (1, 'George', 'VA');
+INSERT INTO students(id, s_name, home) VALUE (2, 'John', 'MA');
+INSERT INTO students(id, s_name, home) VALUE (3, 'Thom', 'VA');
+INSERT INTO students(id, s_name, home) VALUE (4, 'James', 'VA');
+
+# select a single element 
+SELECT id FROM students WHERE s_name='George'
+
+# select multiple of these guys
+SELECT id FROM students WHERE home='VA'
+
+# select parameters other than id
+SELECT s_name FROM students WHERE home='VA'
+
+# select multiple parameters
+SELECT id, s_name FROM students WHERE home='VA'
+
+# select on conditional numerics
+SELECT id, s_name FROM students WHERE id<3
+
+DROP TABLE students;
+
+# ---------------- Exercise 6 ------------------- #
+#
+#  Using WHERE and LIKE to conditionally select
+#
+# ---------------------
+
+# create a new table
+CREATE TABLE students(id INT, s_name VARCHAR(100), home VARCHAR(100), PRIMARY KEY(id))
+
+# add a couple rows
+INSERT INTO students(id, s_name, home) VALUE (1, 'George', 'VA');
+INSERT INTO students(id, s_name, home) VALUE (2, 'John', 'MA');
+INSERT INTO students(id, s_name, home) VALUE (3, 'Thom', 'VA');
+INSERT INTO students(id, s_name, home) VALUE (4, 'James', 'VA');
+
+# the % symbol is a wildcard
+#  - here, select [id & names] pairs where the name begins with J
+SELECT id, s_name FROM students WHERE s_name LIKE 'J%';
+
+#  - here, select [id & names] pairs where home ends in A
+SELECT id, s_name FROM students WHERE home LIKE '%A';
+
+DROP TABLE students;
