@@ -11,5 +11,4 @@ Here's the process:
 
  then, you can run a command like
  SELECT * FROM students;
-
  to see all your sql wonderfulness!
