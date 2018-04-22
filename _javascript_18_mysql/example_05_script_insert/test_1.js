@@ -18,14 +18,15 @@ var mysql = require('mysql');
 //  - this allows for multiple connections to occur without incurring 'startup costs' 
 //    (these costs are time costs for setting up a db connection)
 //    it allows a connection to your db to be reused among subsequent users.
-var pool  = mysql.createPool({
+sqlParams = {
   connectionLimit : 10,
   user            : 'your_username',
   password        : 'asdfasdfasdfasdfasdfasdf',
   host            : 'dbserver.school.com',
   port            : 1234,
   database        : 'your_databasename'
-});
+}
+var pool  = mysql.createPool(sqlParams);
 
 
 // create a new student json object

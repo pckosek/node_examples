@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+    <!--LOAD JQUERY-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js" async></script>
+
+</head>
+
+<body>
+<div>
+    <form id="take_order">
+      <span>Choorse an item from our menu: </span>
+      <input type="number" id="inp_menu_item" name="menu_item" min="1" max="5">
+    </form>
+
+    <!--THE BUTTON. WHEN PRESSED, WILL CALL placeOrder()-->
+    <button type="button" onclick="placeOrder()">Place Order</button>
+</div>
+<div>
+    <p id="table"></p>
+</div>
+
+
+<script type="text/javascript">
+
+    // FUNCTION FOR RESPONDING TO BUTTON PRESS
+    function placeOrder() {
+
+
+        // PERFORM AJAX REQUEST
+    	 $.ajax({
+                url: "kitchen",                      // goes to https://user.tjhsst.edu/pckosek/kitchen
+                type: "get",                         // use a 'get' type request
+                data:  $('#take_order').serialize(), //serialize form and pass to server
+                success: function(response) {
+    
+                    // STEP 7 - DEAL WITH THE RESPONSE ON THE CLIENT
+
+                    // update the display
+                    r = document.getElementById("table");
+                    r.innerHTML = response;
+                }            
+            });
+    }
+            
+</script>
+</body>
+</html>
