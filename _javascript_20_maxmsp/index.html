@@ -1,0 +1,29 @@
+<!doctype html>
+<html>
+    <head>
+        <!--load the socket.io script-->
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.0.3/socket.io.js"></script>    
+    
+        <!--user defined script NOTE that it is just tagged script, not javascript-->
+        <script>
+            // create the socket object. you need to add a path when you run in subspace, like us
+            var socket = io.connect('https://user.tjhsst.edu/', { path: '/pckosek/socket.io/'  });
+
+            socket.on('server_msg', function(response_str){    // create a client-side callback function
+                p = document.getElementById('response');
+                p.innerHTML = response_str;
+            });
+        </script>
+        
+        <script type="text/javascript">
+            function doSocket() {                               
+                socket.emit('client_evt', { keys : 'values'} ); // client-side socket emit
+            }
+        </script>
+        
+    </head>
+    <body id="body">
+        <button type="button" onclick="doSocket()">Press Me</button>
+        <p id='response'></p>
+    </body>
+</html>
