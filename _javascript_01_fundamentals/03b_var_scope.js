@@ -1,7 +1,15 @@
-// scope of variables
+// ************************
+// scope of variables - Part b
 
 
-var x = 1;			// define x. Scope is current execution context, here "global" 
+// in this example, we:
+//  - declare a variable using var
+//    - access the variable inside of a function
+//    - declare a variable inside of a function using var (local within function)
+//  - return to top level and try to access local var out of context
+
+
+var x = 1;			// define x. Scope is current execution context, here effectively "global" 
 doSomething()		// call doSomething. 
 
 console.log(x);		// display x (works).
@@ -13,7 +21,7 @@ function doSomething() {
 }
 
 // notice that x was incremented.
-// notice that y causes problems.
+	// notice that y causes problems.
 
 
 // var scope REFERENCE:
