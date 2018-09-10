@@ -5,33 +5,38 @@
 var express = require('express')
 var app = express();
 
-var hbs = require('hbs')
-
 
 // -------------- express initialization -------------- //
 app.set('port', process.env.PORT || 8080 );
 
 
 // -------------- variable definition -------------- //
-// Just to be nosy
+// This counter is stored in RAM, and will be reset every time you
+// restart the server.
+
 var visitorCount = 0; 
-// See the value of the constant we are going to use
-console.log(__dirname)
 
 
-// -------------- helper function -------------- //
+// -------------- helper function (middleware) -------------- //
 
 function countVisitors (req, res, next) {
 
-	visitorCount++;			// increment number of visits
+	// increment
+    visitorCount++;
+
+    // for our reference
     console.log(visitorCount);
 
-	next();					// call the next function in the sequence
+	// call the next function in the sequence
+	next();	
 }
 
-// -------------- express 'get' handlers -------------- //
 
+// -------------- express 'get' handlers -------------- //
 // These 'getters' are what fetch your pages
+
+//    !!! The count visitors argument here indicates that that function
+// 			is called before this final abstract function !!!
 
 app.get('/', [countVisitors], function(req, res){
 	res.send('Number of visitors: ' + visitorCount);

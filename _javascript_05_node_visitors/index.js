@@ -21,11 +21,15 @@ var visitorCount = 0;
 // These 'getters' are what fetch your pages
 
 app.get('/', function(req, res){
+
+	// increment
     visitorCount++;
-    res.send('hola visitor #' + visitorCount);
 
     // for our reference
     console.log(visitorCount);
+
+    res.send('hola visitor # ' + visitorCount);
+
 });
 
 
