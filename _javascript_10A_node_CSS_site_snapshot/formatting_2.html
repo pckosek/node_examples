@@ -1,0 +1,91 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <style type="text/css">
+            /*this is where you would put class specifications*/
+        </style>
+    </head>
+    <body>
+
+    <!----------------------------------------------->
+    <!--MAGENTA DIV-->
+
+    <div style=
+        "width: 200px;
+        height: 200px;
+        background: magenta;
+        float: left;">
+        
+        This div has float to it. Here's the
+        <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/float">reference</a>
+        on float. Basically, this div will not reset the new line (it will be placed
+        wherever the current next line is) it will be placed according to float, around
+        it will still allow other elements to flow around it.
+
+    </div>
+
+
+    <!----------------------------------------------->
+    <!--RED DIV-->
+    
+    <div style=
+        "width: 220px;
+        height: 120px;
+        background: RED;
+        float: right;">
+        
+        The red div has right float - this means that it will show up on the right,
+        it will be placed at the current new line, and it will not reset the new line,
+        and things will flow around it
+
+    </div>    
+
+    <!----------------------------------------------->
+    <!--WHITE DIV WITH BORDER-->
+    
+    <div style=
+        "width: 215px;
+        height: 215px;
+        border: 1px solid;
+        border-color: rgb(0,0,0);">
+
+        <p>
+            Hi! It's me the white div with the border. Since Mr. and Mrs. magenta and red
+            up there had float settings, they did not reset the newline and thus here I start
+            in the upper left corner. You can see that by the location of my border.
+        </p>
+        <p>
+            Because magenta had float though, I repected her space and didn't start my text
+            until she was finished. On the other hand, because I 
+            <span style=
+                "font-weight: bold">
+                do not
+            </span>
+            have float, any subsequent div will 
+            start below me.
+        </p>
+        <p>
+            (see how yellow feels about this in the comments)
+        </p>
+
+
+    </div>    
+
+    <!----------------------------------------------->
+    <!--YELLOW DIV-->
+    
+    <div style=
+        "width: 120px;
+        height: 200px;
+        background: rgb(255,255,0);;">
+        
+        
+        <!--Yeah, it's me yellow. Because white with border has a fixed height and no float,-->
+        <!--I start on a newline below fixed height. This text is in comments because were -->
+        <!--it not, it would totally overwrite the text in white's div.-->
+
+        <!--more on page 3! (https://user.tjhsst.edu/pckosek/formatting-3)-->
+    </div> 
+    </body>
+
+</html>

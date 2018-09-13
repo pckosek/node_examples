@@ -1,0 +1,70 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <style type="text/css">
+        div,p {
+            border: 1px solid;
+            border-color: rgb(0,0,0);
+            transition-duration: 0.5s;
+        }
+        </style>
+    </head>
+    <body>
+
+
+        <div id="one" style="width: 100px; float:left; height:100px; background:magenta; margin:20px"><p> 1</p></div>
+        <div style="width: 100px; float:left; height:100px; background:magenta; margin:20px">
+            <p>2</p>
+            <p>2</p>
+        </div>
+        <div style="width: 100px; float:left; height:100px; background:magenta; margin:20px"><p>Div 3</p></div>
+        <div style="width: 200px; float:right; height:100px; background:magenta; margin:20px"><p>Div 4</p></div>
+
+        <div style="width: 200px; clear:both; float:left; height:100px; background:magenta; margin20px"><p>This page has tons of inline CSS!</p></div>
+
+
+        <div style="width: 100px; clear:both; float:left; height:100px; background:magenta; margin:20px"><p>Start</p></div>
+        <div style="width: 100px; float:right; height:100px; background:magenta; margin:20px"><p>Div 5</p></div>
+        <div style="width: 100px; float:right; height:100px; background:magenta; margin:20px"><p>Div 6</p></div>
+        
+        <div style="width: 400px; float:right; margin:20px">
+         <div style="float:right; background-color:green; width:100px; height:100px; margin-top:100px; margin-right: 1px;">one</div>
+         <div style="float:left; background-color:green; width:100px; height:100px; margin-top:100px; margin-left: 50px;">two</div>
+        </div>
+    
+    <p>
+        lots of divs within divs here. Kind of like div soup. If you want an explanation of 
+        good positioning, check out 
+        <a href="https://developer.mozilla.org/en-US/docs/Learn/CSS/CSS_layout/Positioning">
+            this link 
+        </a>
+        at mdn
+    </p>
+    
+    <div style="
+        width: 400px;
+        height: 200px;
+        float:left;
+         border-color:green;">
+        
+        To the right is a nice little trick where you can get elemets to show up one after
+        another; make a container that's just large enough to hold as many as you want in 
+        a row, then have the box (div) expand to fill up with as many as you put in.
+        
+    </div>
+    
+    <div style="
+        width: 400px;
+        float:right;">
+     <div style="float:left; border-color:green; width:98px;">one</div>
+     <div style="float:left; border-color:green; width:98px;">two</div>
+     <div style="float:left; border-color:green; width:98px;">three</div>
+     <div style="float:left; border-color:green; width:98px;">four</div>
+     
+     <div style="float:left; border-color:green; width:98px;">five</div>
+     
+    </div>
+        
+    
+    </body>
+</html>

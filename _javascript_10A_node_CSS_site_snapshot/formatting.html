@@ -1,0 +1,87 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <style type="text/css">
+            /*this is where you would put class specifications*/
+        </style>
+    </head>
+    <body>
+
+    <!----------------------------------------------->
+    <!--MAGENTA DIV-->
+
+    <div style=
+        "width: 100px;
+        height: 100px;
+        background: magenta;">
+        
+        read the comments within the page source!
+        
+        <!--this is the magenta div that sits in the upper left hand corner.-->
+        <!--by default, divs are block level elements.-->
+        
+        <!--per: https://developer.mozilla.org/en-US/docs/Web/HTML/Block-level_elements-->
+            <!--A block-level element always starts on a new line and takes -->
+            <!--up the full width available                                 -->
+            <!--(stretches out to the left and right as far as it can).     -->
+    </div>
+
+    <!----------------------------------------------->
+    <!--BLUE DIV-->
+    
+    <div style=
+        "width: 100px;
+        height: 50px;
+        background: BLUE;">
+        
+        <!--this is the blue div that sits underneath the magenta div.-->
+        <!--it can only stretch 100px to the right, but it stretches down only 50px-->
+        
+    </div>
+
+    <!----------------------------------------------->
+    <!--RED DIV-->
+    
+    <div style=
+        "width: 120px;
+        height: 120px;
+        background: RED;">
+        
+        
+        this is the red div. it has a load of text inside of it. There is so much 
+        text in here that it goes beyond the bounds of the div - but the spacing
+        of the object in the flow of the div within page was hard coded within css.
+        This text overflows
+        <!--THIS .-->
+        <!--it can only stretch 100px to the right, but it can stretch down 200px-->
+        
+    </div>    
+
+    <!----------------------------------------------->
+    <!--WHITE DIV WITH BORDER-->
+    
+    <div style=
+        "width: 200px;
+        height: 200px;
+        border: 1px solid;
+        border-color: rgb(0,0,0);">
+
+        <!--This div has a black border.-->
+
+    </div>    
+
+    <!----------------------------------------------->
+    <!--YELLOW DIV-->
+    
+    <div style=
+        "width: 120px;
+        background: rgb(255,255,0);;">
+        
+        this is the yellow div. Unike the red div, the height is set by how much space it
+        took to fill up this text - since there is no height css specification. Continue on to
+        <a href="formatting-2">page 2</a> of the formatting series!
+
+    </div> 
+    </body>
+
+</html>
