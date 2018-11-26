@@ -1,0 +1,31 @@
+ # SQL COMMAND PROMPT GUIDED NOTES
+
+# ---------------- Exercise 5 ------------------- #
+#
+#  Create table with PRIMARY KEYS
+#
+# ---------------------
+
+# construct our table this time with the same two parameters,
+# 	id (an int) and s_name (a varchar), but this time specify
+#   that id is the primary key
+#	- A PRIMARY KEY is a specification that the indicated column
+#     MUST be unique and CANNOT be NULL
+CREATE TABLE students(id INT, s_name VARCHAR(100), PRIMARY KEY(id))
+
+# add bob again
+INSERT INTO students(id, s_name) VALUE (1, 'bob');
+
+# what what happens when you try to add larry with bob's key!
+INSERT INTO students(id, s_name) VALUE (1, 'larry');
+
+# clearly larry wasn't added.
+SELECT * FROM students;
+
+# also, watch what happens when we try tio insert larry without a key.
+# (it fails)
+INSERT INTO students(s_name) VALUE ('larry');
+
+SELECT * FROM students;
+
+DROP TABLE students;

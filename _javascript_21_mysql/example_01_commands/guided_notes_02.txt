@@ -1,0 +1,29 @@
+ # SQL COMMAND PROMPT GUIDED NOTES
+
+# ---------------- Exercise 2 ------------------- #
+#
+#  Basic Functionality, CREATE table, INSERT data
+#
+# ---------------------
+
+# create a table named students.
+CREATE TABLE students(id INT);
+
+# show all of the data in students
+SELECT * FROM students;
+
+# add a single value into our table
+#   this adds the int value 123 into the
+# 	column 'id' within the table students
+INSERT INTO students(id) VALUE (123);
+
+# show all of the data in students now that data has been added
+SELECT * FROM students;
+
+# add another data point into this table
+INSERT INTO students(id) VALUE (1234);
+
+# display again
+SELECT * FROM students;
+
+DROP TABLE students;

@@ -1,0 +1,25 @@
+ # SQL COMMAND PROMPT GUIDED NOTES
+
+# ---------------- Exercise 10 ------------------- #
+#
+#  UPDATE statements
+#
+# ---------------------
+
+# create a new table
+CREATE TABLE students(id INT, s_name VARCHAR(100), home VARCHAR(100), PRIMARY KEY(id))
+
+# add a couple rows
+INSERT INTO students(id, s_name, home) VALUE (1, 'George', 'VA');
+INSERT INTO students(id, s_name, home) VALUE (2, 'John', 'MA');
+INSERT INTO students(id, s_name, home) VALUE (3, 'Thom', 'VA');
+INSERT INTO students(id, s_name, home) VALUE (4, 'James', 'VA');
+INSERT INTO students(id, s_name, home) VALUE (5, 'James', 'VA');
+
+# update the name of student 3 from Thom to Thomas
+UPDATE students SET s_name = "Thomas" WHERE id = 3;
+
+# update the home from VA to Virginia
+UPDATE students SET home = "Virginia" WHERE home = 'VA';
+
+DROP TABLE students;

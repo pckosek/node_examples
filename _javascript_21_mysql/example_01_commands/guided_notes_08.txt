@@ -1,0 +1,33 @@
+ # SQL COMMAND PROMPT GUIDED NOTES
+
+# ---------------- Exercise 8 ------------------- #
+#
+#  Using WHERE to conditionally select
+#
+# ---------------------
+
+# create a new table
+CREATE TABLE students(id INT, s_name VARCHAR(100), home VARCHAR(100), PRIMARY KEY(id))
+
+# add a couple rows
+INSERT INTO students(id, s_name, home) VALUE (1, 'George', 'VA');
+INSERT INTO students(id, s_name, home) VALUE (2, 'John', 'MA');
+INSERT INTO students(id, s_name, home) VALUE (3, 'Thom', 'VA');
+INSERT INTO students(id, s_name, home) VALUE (4, 'James', 'VA');
+
+# select a single element 
+SELECT id FROM students WHERE s_name='George'
+
+# select multiple of these guys
+SELECT id FROM students WHERE home='VA'
+
+# select parameters other than id
+SELECT s_name FROM students WHERE home='VA'
+
+# select multiple parameters
+SELECT id, s_name FROM students WHERE home='VA'
+
+# select on conditional numerics
+SELECT id, s_name FROM students WHERE id<3
+
+DROP TABLE students;

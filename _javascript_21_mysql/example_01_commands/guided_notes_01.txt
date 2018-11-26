@@ -1,0 +1,21 @@
+ # SQL COMMAND PROMPT GUIDED NOTES
+
+# ---------------- Exercise 1 ------------------- #
+#
+#  Basic Functionality, create and describe table
+#
+# ---------------------
+
+# create a table named students.
+# 	this table has a single field named id,
+# 	and id is of type int
+CREATE TABLE students(id INT);
+
+# show all of our tables
+SHOW TABLES;
+
+# describe our table to us
+DESC students;
+
+# delete our table
+DROP TABLE students;

@@ -1,0 +1,35 @@
+ # SQL COMMAND PROMPT GUIDED NOTES
+
+# ---------------- Exercise 11 ------------------- #
+#
+#  CAUTION - UPDATE or INSERT if data doesn't exist (upsert)
+#   a particular problem comes up when you don't know whether to insert
+#   or update. This is how we solve it.
+#
+# ---------------------
+
+# create a new table
+CREATE TABLE students(id INT, s_name VARCHAR(100), home VARCHAR(100), PRIMARY KEY(id))
+
+# add a couple rows
+INSERT INTO students(id, s_name, home) VALUE (1, 'George', 'VA');
+INSERT INTO students(id, s_name, home) VALUE (2, 'John', 'MA');
+INSERT INTO students(id, s_name, home) VALUE (3, 'Thom', 'VA');
+INSERT INTO students(id, s_name, home) VALUE (4, 'James', 'VA');
+
+# show all of the values
+SELECT * FROM students;
+
+# upsert james into spot 5 (this time it does the insert op)
+INSERT INTO students(id, s_name, home ) VALUES (5, "James", "VA") ON DUPLICATE KEY UPDATE id = VALUES(id), s_name = VALUES(s_name), home = VALUES(home);
+
+# show all of the values
+SELECT * FROM students;
+
+# upsert james into spot 5 (this time it does the update)
+INSERT INTO students(id, s_name, home ) VALUES (5, "James", "VA") ON DUPLICATE KEY UPDATE id = VALUES(id), s_name = VALUES(s_name), home = VALUES(home);
+
+# show all of the values
+SELECT * FROM students;
+
+DROP TABLE students;

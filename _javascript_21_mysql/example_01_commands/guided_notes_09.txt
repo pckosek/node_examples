@@ -1,0 +1,25 @@
+ # SQL COMMAND PROMPT GUIDED NOTES
+
+# ---------------- Exercise 9 ------------------- #
+#
+#  Using WHERE and LIKE to conditionally select
+#
+# ---------------------
+
+# create a new table
+CREATE TABLE students(id INT, s_name VARCHAR(100), home VARCHAR(100), PRIMARY KEY(id))
+
+# add a couple rows
+INSERT INTO students(id, s_name, home) VALUE (1, 'George', 'VA');
+INSERT INTO students(id, s_name, home) VALUE (2, 'John', 'MA');
+INSERT INTO students(id, s_name, home) VALUE (3, 'Thom', 'VA');
+INSERT INTO students(id, s_name, home) VALUE (4, 'James', 'VA');
+
+# the % symbol is a wildcard
+#  - here, select [id & names] pairs where the name begins with J
+SELECT id, s_name FROM students WHERE s_name LIKE 'J%';
+
+#  - here, select [id & names] pairs where home ends in A
+SELECT id, s_name FROM students WHERE home LIKE '%A';
+
+DROP TABLE students;

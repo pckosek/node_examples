@@ -1,0 +1,28 @@
+ # SQL COMMAND PROMPT GUIDED NOTES
+
+# ---------------- Exercise 4 ------------------- #
+#
+#  CAUTION - inserted elements are just rows and not unique by default!
+#
+# ---------------------
+
+# Create table as before
+CREATE TABLE students(id INT, s_name VARCHAR(100));
+
+# add three students into this table
+INSERT INTO students(id, s_name) VALUE (1, 'bob');
+INSERT INTO students(id, s_name) VALUE (2, 'paul');
+INSERT INTO students(id, s_name) VALUE (1, 'frank');
+INSERT INTO students(id, s_name) VALUE (2, 'frank');
+
+# look at the table now
+#  - note that the insert command is just adding additional rows
+SELECT * FROM students;
+
+# This table structure can be a problem if you wanted to select 
+#   a student by their student id
+#  - notice that multiple ids are returned in each of these queries
+SELECT s_name FROM students WHERE id = 1;
+SELECT id FROM students WHERE s_name = 'frank';
+
+DROP TABLE students;

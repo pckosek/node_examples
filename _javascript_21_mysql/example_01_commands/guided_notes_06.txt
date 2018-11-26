@@ -1,0 +1,28 @@
+ # SQL COMMAND PROMPT GUIDED NOTES
+
+# ---------------- Exercise 6 ------------------- #
+#
+#  Create table with NOT NULL keys
+#
+# ---------------------
+
+# In the previous table intialization (repeated in the line below), s_name IS allowed to be NULL (by default)
+CREATE TABLE students(id INT, s_name VARCHAR(100), PRIMARY KEY(id))
+
+# this allows us to add students with or without names
+INSERT INTO students(id, s_name) VALUE (1, 'larry');
+INSERT INTO students(id) VALUE (2) 
+
+# here - you can see that student 2 does not have a name.
+#  this can be annoying if you actually want him or her to have a name!
+SELECT * FROM students;
+
+# SO - let's get rid of this table and make one with NOT NULL s_name
+DROP TABLE students;
+CREATE TABLE students(id INT, s_name VARCHAR(100) NOT NULL, PRIMARY KEY(id))
+
+# when we try to add a student without a name this time, we get an error
+INSERT INTO students(id, s_name) VALUE (1, 'larry');
+INSERT INTO students(id) VALUE (2) 
+
+DROP TABLE students;

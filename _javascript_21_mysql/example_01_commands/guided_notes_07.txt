@@ -1,0 +1,31 @@
+ # SQL COMMAND PROMPT GUIDED NOTES
+
+# ---------------- Exercise 7 ------------------- #
+#
+#  DELETE rows from the table
+#
+# ---------------------
+
+# create a table as before
+CREATE TABLE students(id INT, s_name VARCHAR(100), PRIMARY KEY(id))
+
+# add several rows. We're going to do stuff with them
+INSERT INTO students(id, s_name) VALUE (1, 'larry');
+INSERT INTO students(id, s_name) VALUE (2, 'mary');
+INSERT INTO students(id, s_name) VALUE (5, 'paul');
+INSERT INTO students(id, s_name) VALUE (102, 'chuck');
+INSERT INTO students(id, s_name) VALUE (103, 'chuck');
+
+# view the table
+SELECT * FROM students;
+
+# delete a student by id, verify that mike is gone
+DELETE FROM students where id=100
+SELECT * FROM students;
+
+# You do not have to delete by the primary key.
+#  - notice that this deletes two rows
+DELETE FROM students where s_name='chuck'
+SELECT * FROM students;
+
+DROP TABLE students;
