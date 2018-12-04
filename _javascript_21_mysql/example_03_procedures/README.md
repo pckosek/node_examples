@@ -10,7 +10,7 @@ Here's the process:
   * SOURCE /the/full/file/path/with/slashes/proc_1.sql
 
  then, you can run a command like<br>
-call simple_proc;<br>
+`call simple_proc;`<br>
 OR<br>
-call less_simple_proc('VA')<br>
+`call less_simple_proc('VA')`<br>
  to see all your sql wonderfulness!
