@@ -9,8 +9,8 @@ Here's the process:
 * navigate to the sql command prompt and type the command:
   * SOURCE /the/full/file/path/with/slashes/proc_1.sql
 
- then, you can run a command like
-call simple_proc;
-OR
-call less_simple_proc('VA')
+ then, you can run a command like<br>
+call simple_proc;<br>
+OR<br>
+call less_simple_proc('VA')<br>
  to see all your sql wonderfulness!
