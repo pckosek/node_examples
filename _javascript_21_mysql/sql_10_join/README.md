@@ -10,8 +10,14 @@ See it in action:
 * `SELECT click_boost_amount FROM gamedata JOIN boosters ON gamedata.click_booster_level = boosters.level where id = 1`
 
 SPECIFCIALLY, the structure is as follows:
-`SELECT click_boost_amount`<br>
-` FROM gamedata `<br>
-` JOIN boosters `<br>
-` 	ON gamedata.click_booster_level = boosters.level `<br>
-` WHERE id = 1`<br>
+<code>
+SELECT click_boost_amount
+ FROM gamedata 
+ JOIN boosters 
+ 	ON gamedata.click_booster_level = boosters.level
+ WHERE id = 1
+</code>
+
+
+- [ref 1](https://www.codeproject.com/Articles/33052/Visual-Representation-of-SQL-Joins)
+- [ref 2](http://www.sql-join.com/)
