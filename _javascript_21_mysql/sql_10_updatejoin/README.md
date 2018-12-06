@@ -10,13 +10,13 @@ See it in action:
 * `UPDATE gamedata AS dest, (SELECT click_boost_amount FROM gamedata JOIN boosters on gamedata.click_booster_level = boosters.level WHERE id = 1) AS src SET dest.clicks = dest.clicks + src.click_boost_amount WHERE dest.id = 1`
 
 SPECIFCIALLY, the structure is as follows:<br>
-`UPDATE <br>
-	gamedata AS dest,
-	(
-		SELECT click_boost_amount 
-		FROM gamedata 
-			JOIN boosters on gamedata.click_booster_level = boosters.level 
-		WHERE id = 1
-	) AS src 
-SET dest.clicks = dest.clicks + src.click_boost_amount
-WHERE dest.id = 1`
+`UPDATE`<br>
+`	gamedata AS dest,`<br>
+`	(`<br>
+`		SELECT click_boost_amount `<br>
+`		FROM gamedata `<br>
+`			JOIN boosters on gamedata.click_booster_level = boosters.level `<br>
+`		WHERE id = 1`<br>
+`	) AS src `<br>
+`SET dest.clicks = dest.clicks + src.click_boost_amount`<br>
+`WHERE dest.id = 1`<br>
