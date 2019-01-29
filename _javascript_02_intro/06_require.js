@@ -9,11 +9,10 @@ var helper = require('./myHelpers.js');
 //  This is really helpful in making code clean in that 
 //  it allows you to keep functions in a library, and edit the
 //  method there.
-doesBorder = helper.sharesBorder('MN', 'UT')
+var flip_result = helper.heads_tails('MN', 'UT')
 
-// log the result of our operation 
-//  - recall that this is nonsense, just 50/50 true or false
-console.log(doesBorder)
+// log the result of our operation, just 50/50 one or the other
+console.log(flip_result)
 console.log('==================')
 
 // just be careful, because these are not immutable references

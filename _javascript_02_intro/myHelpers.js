@@ -11,21 +11,25 @@ adjacency = [
 	]
 
 
-// create a private method
-function private_getBorder(indx) {
+// some private helper method. 
+function private_getAdjacency(indx) {
 	return adjacency[indx];
 }
 
 // create a dummy function. This method randomly returns
-//  true or false 50% of the time, regardless of input
-function rando_dummy_function(state_1, state_2) {
-	return Math.random() >= 0.5;
+//  s1 or s2 
+function fifty_fifty_chance(state_1, state_2) {
+	if (Math.random() >= 0.5) {
+		return state_1;
+	} else {
+		return state_2;
+	}
 }
 
 // assigning a value to the module.exports object, that becomes 
 // publicly available when the library is 'required'
 
 // as a result of the line below, you can call the method
-// sharesBorder when you require this file, and the function 
-// that will be called is rando_dummy_function
-module.exports.sharesBorder = rando_dummy_function;
+// heads_tails when you require this file, and the function 
+// that will be called is fifty_fifty_chance
+module.exports.heads_tails = fifty_fifty_chance;
