@@ -6,6 +6,6 @@
 
 
 
-setInterval( function {
+setInterval( function() {
   console.log('output!');
 }, 100);
