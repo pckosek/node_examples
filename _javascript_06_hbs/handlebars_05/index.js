@@ -38,6 +38,15 @@ app.get('/', function(req, res){
 
 });
 
+// WILDCARD HANDLERS MUST COME AFTER ALL OTHER EXPLICIT ENDPOINTS 
+app.get('/:page', function(req, res){
+
+    var info = {
+        page : req.params.page
+    };
+
+    res.json(info)
+});
 
 // -------------- listener -------------- //
 // The listener is what keeps node 'alive.' 
