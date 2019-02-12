@@ -1,11 +1,10 @@
 #!/usr/bin/nodejs
 
-
 // -------------- load packages -------------- //
 var express = require('express');
-var app = express();
 var path = require('path');
-var headsTails = require('./serverJS/myMagicFunction.js')
+
+var app = express();                /* create our server */
 
 
 // -------------- express initialization -------------- //
@@ -13,32 +12,39 @@ app.set('port', process.env.PORT || 8080 );
 
 
 // -------------- serve static folders -------------- //
-app.use('/js', express.static(path.join(__dirname, 'js')))
 app.use('/css', express.static(path.join(__dirname, 'css')))
 
 
-// -------------- express 'get' handlers -------------- //
-//user root page i.e. https://user.tjhsst.edu/pckosek/
-app.get('/', function(req, res){
-    res.sendFile(__dirname + '/index.html');
-});
+// -------------- define variables -------------- //
+var menu = [
+    'salad',
+    'pasta',
+    'pizza',
+    'chicken'
+]
 
-//user requested some page beneath root, i.e. https://user.tjhsst.edu/pckosek/blah
-app.get('/:page', function(req, res){
-    // determine the sub-page
-    var paramsRequest = req.params.page;
-    // arbitrary user variable
-    var flipResult;
+
+// -------------- define endpoints -------------- //
+app.get('/', function(req, res){
+    res.sendFile(
+        path.join(__dirname, 'ajax_without_jquery.html')
+    );
+})
+
+
+// this is called by AJAX
+app.get('/kitchen', function(req, res){
     
-    // specific logic if the user requested https://user.tjhsst.edu/pckosek/flipcoin,
-    // otherwise, redirect to the root level page
-    if (paramsRequest=='flipcoin') {
-        flipResult = headsTails.headsOrTails()
-        res.send(flipResult)
-    } else {
-        res.redirect('https://user.tjhsst.edu/pckosek/');
+    // there exists req.query.menu_item because there is an input named
+    //    'menu_item' in the form
+    var menu_item = req.query.menu_item;
+
+    var order = {
+        food : menu[menu_item]
     }
-});
+
+    res.json(order);   
+})
 
 
 // -------------- listener -------------- //
