@@ -18,6 +18,8 @@
 
 <!--MAIN CONTENT PAGE-->
 <div class="content">
+
+    <!--THE FORM THAT WILL GATHER THE INPUT-->
     <form id="take_order">
       <span>Choorse an item from our menu: </span>
       <input type="number" id="inp_menu_item" name="menu_item" min="1" max="5">
@@ -25,19 +27,19 @@
 
     <!--THE BUTTON. WHEN PRESSED, WILL CALL placeOrder()-->
     <button type="button" onclick="placeOrder()">Place Order</button>
-</div>
 
-
-<!--A PLACEHOLDER THAT WILL BE POPULATED WITH CONTENT-->
-<div>
-    <p id="table"></p>
+    <!--A PLACEHOLDER THAT WILL BE POPULATED WITH CONTENT-->
+    <div>
+        <p id="table"></p>
+    </div>
+    
 </div>
 
 
 
 <!-- ------------------------ SCRIPTS ARE PLACED AT THE END OF THE BODY ------------------------ -->
 <!--LOAD JQUERY-->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js" async></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
 
 <!--CUSTOM SCRIPT-->
 <script type="text/javascript">
@@ -60,7 +62,7 @@
                     // update the display
                     // (bring the order to the customer)
                     r = document.getElementById("table");
-                    r.innerHTML = response;
+                    r.innerHTML = response.food;
                 },
                 error: function (stat, err) {
 

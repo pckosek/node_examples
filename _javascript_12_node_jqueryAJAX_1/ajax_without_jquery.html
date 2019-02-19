@@ -25,54 +25,54 @@
 
     <!--THE BUTTON. WHEN PRESSED, WILL CALL placeOrder()-->
     <button type="button" onclick="placeOrder()">Place Order</button>
-</div>
 
 
-<!--A PLACEHOLDER THAT WILL BE POPULATED WITH CONTENT-->
-<div>
-    <p id="table"></p>
+    <!--A PLACEHOLDER THAT WILL BE POPULATED WITH CONTENT-->
+    <div>
+        <p id="table"></p>
+    </div>
+
 </div>
+
 
 
 
 <!-- ------------------------ SCRIPTS ARE PLACED AT THE END OF THE BODY ------------------------ -->
-<!--LOAD JQUERY-->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js" async></script>
 
 <!--CUSTOM SCRIPT-->
 <script type="text/javascript">
+
+    // GUIDE 
+    // https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest/Using_XMLHttpRequest
+
 
     // FUNCTION FOR RESPONDING TO BUTTON PRESS
     // -- Take the order from the user
     function placeOrder() {
 
+        // define a new XMLHttpRequest
+        var request = new XMLHttpRequest();
+        
+        // define what happens when the we get a response back from the server
+        request.onload = function() {
+            
+            // convert respose json into an object
+            var responseObj = JSON.parse(request.response);
 
-        // SEND THE ORDER TO THE KITCHEN
-       $.ajax({
-                url: "kitchen",                      // goes to https://user.tjhsst.edu/pckosek/kitchen
-                type: "get",                         // use a 'get' type request
-                data:  $('#take_order').serialize(), //serialize form and pass to server
-                success: function(response) {
-    
-                    // THIS FUNCTION IS CALLED WHEN KITCHEN IS COMPLETE 
-                    // -- AND -- everthing went ok
+            // identify destination and place content
+            r = document.getElementById("table");
+            r.innerHTML = responseObj.food;
+        };
+        
+        // extract data for server, set as key value pair
+        var kv_pair_string = "menu_item=" + document.getElementById('inp_menu_item').value;
 
-                    // update the display
-                    // (bring the order to the customer)
-                    r = document.getElementById("table");
-                    r.innerHTML = response;
-                },
-                error: function (stat, err) {
+        // open remote connection
+        request.open("GET", "https://user.tjhsst.edu/pckosek/kitchen?" + kv_pair_string );
 
-                    // THIS FUNCTION IS CALLED WHEN KITCHEN IS COMPLETE 
-                    // -- BUT -- something went wrong (like invalid menu_item)
+        // execute
+        request.send();
 
-                    // update the display
-                    // (bring the explanation to the customer)
-                    r = document.getElementById("table");
-                    r.innerHTML = 'something went wrong in the kitchen!';
-                }       
-            });
     }
             
 </script>
