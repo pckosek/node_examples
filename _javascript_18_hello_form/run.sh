@@ -1,2 +1,2 @@
-#!/bin/sh 
-node index.js > info.log
+#!/bin/sh
+node index.js
