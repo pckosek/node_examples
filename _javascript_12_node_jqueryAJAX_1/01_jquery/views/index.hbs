@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+</head>
+
+<body>
+
+<div class="content">
+    <p id="p-main">
+      Hello, World
+    </p><br>
+
+    <button type="button" onclick="updateText()">Press Me!</button>
+</div>
+
+<!--
+    The jquery library must be loaded before it can be used.
+    Here, I load it from a CDN (an external server)
+ -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+
+<!-- 
+jquery can now be mixed with normal javascipt. The following jquery is equivalent to saying:
+document.getElementById("p-main").innerHTML = "Hello from jquery!";
+ -->
+<script type="text/javascript">
+
+  function updateText() {
+    $("#p-main").text("Hello from jquery!");
+  }
+
+</script>
+
+</body>
+</html>

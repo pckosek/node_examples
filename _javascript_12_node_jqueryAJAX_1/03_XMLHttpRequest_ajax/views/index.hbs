@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+</head>
+
+<body>
+
+<div class="content">
+    <p id="p-main">
+      Hello, World
+    </p><br>
+
+    <button type="button" onclick="fetchFromServer()">Press Me!</button>
+</div>
+
+<script type="text/javascript">
+
+function fetchFromServer() {
+	var oReq = new XMLHttpRequest();
+	oReq.addEventListener("load", onServerResponse );
+	oReq.open("GET", "https://user.tjhsst.edu/pckosek/background_worker");
+	oReq.send();
+}
+
+function onServerResponse () {
+    var responseText = this.responseText;
+    console.log(responseText);
+    document.getElementById('p-main').innerHTML = responseText;
+}
+
+</script>
+
+</body>
+</html>

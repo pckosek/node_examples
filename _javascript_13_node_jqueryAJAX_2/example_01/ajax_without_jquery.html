@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="css/nav_bar.css">
+</head>
+
+<body>
+
+<!--NAVIGATION DRAWER-->
+<div class="top-nav">
+    <ul class="top-horizontal">
+      <li class="top-menu lefty"><a href="javascript:void(0)">TJHSST</a></li>
+      <li class="top-menu lefty"><a href="javascript:void(0)">Home</a></li>
+      <li class="top-menu lefty"><a href="javascript:void(0)">Labs</a></li>
+      <li class="top-menu righty"><a href="javascript:void(0)">Settings</a></li>
+    </ul>
+</div>
+
+<!--MAIN CONTENT PAGE-->
+<div class="content">
+    <form id="take_order">
+      <span>Choorse an item from our menu: </span>
+      <input type="number" id="inp_menu_item" name="menu_item" min="1" max="5">
+    </form>
+
+    <!--THE BUTTON. WHEN PRESSED, WILL CALL placeOrder()-->
+    <button type="button" onclick="placeOrder()">Place Order</button>
+
+
+    <!--A PLACEHOLDER THAT WILL BE POPULATED WITH CONTENT-->
+    <div>
+        <p id="table"></p>
+    </div>
+
+</div>
+
+
+
+
+<!-- ------------------------ SCRIPTS ARE PLACED AT THE END OF THE BODY ------------------------ -->
+
+<!--CUSTOM SCRIPT-->
+<script type="text/javascript">
+
+    // GUIDE 
+    // https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest/Using_XMLHttpRequest
+
+
+    // FUNCTION FOR RESPONDING TO BUTTON PRESS
+    // -- Take the order from the user
+    function placeOrder() {
+
+        // define a new XMLHttpRequest
+        var request = new XMLHttpRequest();
+        
+        // define what happens when the we get a response back from the server
+        request.onload = function() {
+            
+            // convert respose json into an object
+            var responseObj = JSON.parse(request.response);
+
+            // identify destination and place content
+            r = document.getElementById("table");
+            r.innerHTML = responseObj.food;
+        };
+        
+        // extract data for server, set as key value pair
+        var kv_pair_string = "menu_item=" + document.getElementById('inp_menu_item').value;
+
+        // open remote connection
+        request.open("GET", "https://user.tjhsst.edu/pckosek/kitchen?" + kv_pair_string );
+
+        // execute
+        request.send();
+
+    }
+            
+</script>
+
+
+</body>
+</html>

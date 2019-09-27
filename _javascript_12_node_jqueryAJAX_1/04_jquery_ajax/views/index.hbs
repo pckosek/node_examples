@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+</head>
+
+<body>
+
+<div class="content">
+    <p id="p-main">
+      Hello, World
+    </p><br>
+
+    <button type="button" onclick="fetchFromServer()">Press Me!</button>
+</div>
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+<script type="text/javascript">
+
+function fetchFromServer() {
+    var ajax_params = {
+        'url'     : "https://user.tjhsst.edu/pckosek/background_worker",
+        'type'    : "get",
+        'success' : onServerResponse
+    }
+    
+    $.ajax( ajax_params )
+}
+
+function onServerResponse (responseText) {
+    
+    console.log(responseText);
+    document.getElementById('p-main').innerHTML = responseText;
+}
+
+</script>
+
+</body>
+</html>

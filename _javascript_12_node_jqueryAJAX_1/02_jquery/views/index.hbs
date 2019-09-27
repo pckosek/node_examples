@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+</head>
+
+<body>
+
+<div class="content">
+    <p id="p-main">
+      Hello, World
+    </p><br>
+
+    <button id="btn" type="button">Press Me!</button>
+</div>
+
+<!--
+    The jquery library must be loaded before it can be used.
+    Here, I load it from a CDN (an external server)
+ -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+
+<!-- 
+	jquery can also be used to assign onclick listeners programmatically 
+ -->
+<script type="text/javascript">
+
+  $("#btn").click( function() {
+    $("#p-main").text("Hello from jquery!");
+  });
+
+</script>
+
+</body>
+</html>
