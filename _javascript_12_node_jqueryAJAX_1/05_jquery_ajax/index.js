@@ -21,9 +21,12 @@ app.get('/', function(req,res) {
     res.render('index')
 });
 
-app.get('/get_something', function(req,res) {
+app.get('/background_worker', function(req,res) {
     
-    var someString = '----HI------'
+    var asNumber = parseFloat(req.query.some_number);
+    var squared  = Math.pow( asNumber, 2); 
+
+    var someString = '----' + asNumber + '------';
     res.send(someString)
 });
 
