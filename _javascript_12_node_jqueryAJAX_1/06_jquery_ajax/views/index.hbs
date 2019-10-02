@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+</head>
+
+<body>
+
+<div class="content">
+    <p id="p-main">
+      Choose a number<br>
+      <form>
+        <input type="radio" name="the_number" value="1">One<br>
+        <input type="radio" name="the_number" value="2">Two<br>
+        <input type="radio" name="the_number" value="12">Twelve
+      </form>
+
+    </p><br>
+
+    <button type="button" onclick="fetchFromServer()">Press Me!</button>
+</div>
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+<script type="text/javascript">
+
+function fetchFromServer() {
+    
+    var radioValue = document.querySelector("input[name='the_number']:checked").value;
+    
+    var ajax_params = {
+        'url'     : "https://user.tjhsst.edu/pckosek/background_worker",
+        'type'    : "get",
+        'data'    : { 'some_number' : radioValue },
+        'success' : onServerResponse
+    }
+    
+    $.ajax( ajax_params )
+}
+
+function onServerResponse (responseText) {
+    console.log(responseText);
+    document.getElementById('p-main').innerHTML = responseText;
+}
+
+</script>
+
+</body>
+</html>

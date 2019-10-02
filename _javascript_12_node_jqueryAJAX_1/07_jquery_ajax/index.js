@@ -4,7 +4,7 @@
 // -------------- load packages -------------- //
 var express = require('express')
 var app = express();
-
+var fs = require('fs')
 var hbs = require('hbs');
 
 
@@ -22,14 +22,13 @@ app.get('/', function(req,res) {
 });
 
 app.get('/background_worker', function(req,res) {
-    
+
     var asNumber = parseFloat(req.query.some_number);
     var squared  = Math.pow( asNumber, 2); 
 
-    var someString = '----' + squared + '------';
-    res.send(someString)
+    var obj = {'result' : squared }
+    res.json(obj);
 });
-
 
 // -------------- listener -------------- //
 // The listener is what keeps node 'alive.' 
