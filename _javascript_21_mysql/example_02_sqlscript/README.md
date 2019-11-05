@@ -14,5 +14,7 @@ Here's the process:
   ```
 
  once you have run the initialization script, at the sql prompt you can run a command like
- SELECT * FROM students;
- to see all your sql wonderfulness!
+```
+SELECT * FROM students;
+```
+to see all your sql wonderfulness!
