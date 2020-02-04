@@ -5,6 +5,8 @@
 var express = require('express')
 var app = express();
 
+var path = require('path')
+
 
 // -------------- express initialization -------------- //
 app.set('port', process.env.PORT || 8080 );
@@ -26,7 +28,9 @@ app.get('/', function(req, res){
 
     // sendFile sends the actual html files
     // __dirname is a string that corresponds to the current directory location
-    res.sendFile(__dirname+ '/index.html');
+    
+    var full_path = path.join( __dirname, 'index.html' )
+    res.sendFile(full_path);
 });
 
 app.get('/just_a_string', function(req, res){
