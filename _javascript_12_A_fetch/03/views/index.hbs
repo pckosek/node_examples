@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>Restaurant</h2>
+
+<div>
+	<p>Welcome to the Restaurant. Please select something from our menu!</p>
+	<p>
+      	<h3>Choose Your Salad</h3>
+        <input type="radio" name="salad" value="house">House<br>
+        <input type="radio" name="salad" value="caesar" checked>Caesar<br>
+        <input type="radio" name="salad" value="cobb">Cobb<br>
+        <h3>Choose Your Main Course</h3>
+        <input type="radio" name="main" value="steak">Steak<br>
+        <input type="radio" name="main" value="tofu">Tofu<br>
+        <input type="radio" name="main" value="salmon" checked>Salmon<br>
+        <button type="button" onclick="purchase()">Purchase</button>
+     </p>
+     <p>
+     	Thanks for ordering! Your total is $<span id="purchase_tot"></span>.
+     </p>
+</div>
+
+<script type="text/javascript" src="js/demo.js"></script>
+
+</body>
+</html>

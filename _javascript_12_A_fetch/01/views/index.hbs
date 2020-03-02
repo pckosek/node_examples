@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>Restaurant</h2>
+
+<div>
+	<p>Get a random choice!</p>
+	<p>
+        <button type="button" onclick="get_from_server()">Get A Choice</button>
+    </p>
+     <p>
+     	Thanks for pressing the button! Your are assigned to <span id="house_nm"></span>.
+     </p>
+</div>
+
+<script type="text/javascript">
+
+function get_from_server() {
+	fetch('https://user.tjhsst.edu/pckosek/house_worker')
+	.then((response) => {
+		return response.json()
+	})
+	.then((data) => {
+		update_page(data)
+	});
+}
+
+function update_page(data) {
+	var span = document.getElementById('house_nm');
+	span.innerHTML = data['house'];	
+}
+
+</script>
+
+</body>
+</html>
