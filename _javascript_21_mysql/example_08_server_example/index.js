@@ -4,9 +4,8 @@
 var express = require('express');
 var path = require('path');
 var mysql = require('mysql');
+var hbs = require('hbs');
 
-// password vars, etc.
-var private_vars = require( path.join(__dirname, '..', 'private', 'private_vars.js') );
  
 // create out server
 var app = express();
@@ -14,7 +13,7 @@ var app = express();
 
 // -------------- express initialization -------------- //
 app.set('port', process.env.PORT || 8080 );
-
+app.set('view engine', 'hbs')
 
 // -------------- mysql initialization -------------- //
 // GET THER PARAMETERS FROM DIRECTOR!!!
@@ -35,9 +34,7 @@ var pool  = mysql.createPool(sql_params);
 
 //sent a default file
 app.get('/', function(req, res){
-    res.sendFile(
-        path.join(__dirname, 'restaurant.html')
-    );
+    res.render('restaurant');
 })
 
 // this is called by AJAX
@@ -48,11 +45,11 @@ app.get('/kitchen', function(req, res){
     var menu_item = req.query.menu_item;
 
     // SQL DATABASE TIME!!!
-    pool.query('SELECT s_name FROM students WHERE id=?',menu_item, function (error, results, fields) {
+    pool.query('SELECT f_name FROM foods WHERE id=?',menu_item, function (error, results, fields) {
       if (error) throw error;
 
         // CONSTRUCT AND SEND A RESPONSE
-        outstr = 'Here is your ' + results[0].s_name + '. Have a nice day!';
+        outstr = 'Here is your ' + results[0].f_name + '. Have a nice day!';
         res.send(outstr);   
     });
 })
