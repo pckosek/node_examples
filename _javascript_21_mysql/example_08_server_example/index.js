@@ -17,8 +17,17 @@ app.set('port', process.env.PORT || 8080 );
 
 
 // -------------- mysql initialization -------------- //
-// create a connection pool
-var pool  = mysql.createPool(private_vars.sql_params);
+// GET THER PARAMETERS FROM DIRECTOR!!!
+var sql_params = {
+  connectionLimit : 10,
+  user            : 'your_username',                // change
+  password        : 'asdfasdfasdfasdfasdfasdf',     // change
+  host            : 'dbserver.school.com',          // change
+  port            : 3306,
+  database        : 'your_databasename'             // change 
+}
+
+var pool  = mysql.createPool(sql_params);
 
 
 
