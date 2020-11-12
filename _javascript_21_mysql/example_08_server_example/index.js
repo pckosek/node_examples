@@ -19,11 +19,11 @@ app.set('view engine', 'hbs')
 // GET THER PARAMETERS FROM DIRECTOR!!!
 var sql_params = {
   connectionLimit : 10,
-  user            : 'your_username',                // change
-  password        : 'asdfasdfasdfasdfasdfasdf',     // change
-  host            : 'dbserver.school.com',          // change
-  port            : 3306,
-  database        : 'your_databasename'             // change 
+  user            : process.env.DIRECTOR_DATABASE_USERNAME,
+  password        : process.env.DIRECTOR_DATABASE_PASSWORD,
+  host            : process.env.DIRECTOR_DATABASE_HOST,
+  port            : process.env.DIRECTOR_DATABASE_PORT,
+  database        : process.env.DIRECTOR_DATABASE_NAME
 }
 
 var pool  = mysql.createPool(sql_params);
@@ -49,8 +49,18 @@ app.get('/kitchen', function(req, res){
       if (error) throw error;
 
         // CONSTRUCT AND SEND A RESPONSE
-        outstr = 'Here is your ' + results[0].f_name + '. Have a nice day!';
-        res.send(outstr);   
+        //  - the response from the database will be in the results parameter.
+        //    in this case, I've examined the results ahead of time and know that results is an array
+        //    the 0th element of the array has the data we're looking for
+        //  - and it will be an object with the fields we selected.
+
+        // put the relevant response into a dictionary for hbs
+        var render_dictionary = {
+          'order' : results[0].f_name
+        }
+
+        //render
+        res.render('result', render_dictionary );   
     });
 })
 
