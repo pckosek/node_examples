@@ -9,7 +9,6 @@ var hbs = require('hbs');
 
 
 // -------------- express initialization -------------- //
-app.set('port', process.env.PORT || 8080 );
 
 // tell express that the view engine is hbs
 app.set('view engine', 'hbs');
@@ -34,6 +33,6 @@ app.get('/background_worker', function(req,res) {
 // -------------- listener -------------- //
 // The listener is what keeps node 'alive.' 
 
-var listener = app.listen(app.get('port'), function() {
-  console.log( 'Express server started on port: '+listener.address().port );
+var listener = app.listen(process.env.PORT || 8080, process.env.HOST || "0.0.0.0", function() {
+    console.log("Express server started");
 });
