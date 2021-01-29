@@ -6,17 +6,13 @@
 var express = require('express')
 var app = express();
 
-
-// -------------- express initialization -------------- //
-// PORT SETUP - NUMBER SPECIFIC TO THIS SYSTEM
-
-app.set('port', process.env.PORT || 8080 );
-
+console.log('class object app created');
 
 // -------------- express 'get' handlers -------------- //
 // These 'getters' are what fetch your pages
 
 app.get('/', function(req, res){
+    console.log('default landing page accessed!');
     res.send('hola');
 });
 
@@ -34,6 +30,6 @@ app.get('/not_a_search', function(req, res){
 // -------------- listener -------------- //
 // // The listener is what keeps node 'alive.' 
 
-var listener = app.listen(app.get('port'), function() {
-  console.log( 'Express server started on port: '+listener.address().port );
+var listener = app.listen(process.env.PORT || 8080, process.env.HOST || "0.0.0.0", function() {
+    console.log("Express server started");
 });
