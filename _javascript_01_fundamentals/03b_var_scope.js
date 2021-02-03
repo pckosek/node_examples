@@ -17,7 +17,7 @@ console.log(y);		// display y (doesn't work).
 
 function doSomething() {
 	var y = 12;     // define y. Scope is current execution context.
-	x += 1;
+	var 	x += 1;
 }
 
 // notice that x was incremented.

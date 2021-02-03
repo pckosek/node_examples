@@ -13,8 +13,8 @@
 //  - come back out inot global space and see what happened
 
 
-x = 1;				// define x. Scope is global
-doSomething()		// call doSomething. 
+var x = 1;				// define x. Scope is global
+doSomething();		// call doSomething. 
 console.log(x);		// display x.
 
 function doSomething() {

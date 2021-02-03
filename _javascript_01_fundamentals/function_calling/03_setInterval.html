@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>OnClick Page</title>
+	</head>
+
+	<body>
+		<p id="count_display"></p>
+		
+	</body>
+
+	<script type="text/javascript">
+
+	var count = 0;
+
+	function updateCount() {
+		count++;
+		var disp = document.querySelector('#count_display');
+		disp.innerHTML = count;
+	}
+
+	var h = setInterval( updateCount, 100);
+
+	</script>
+</html>

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>OnClick Page</title>
+	</head>
+
+	<body>
+		<button type="button" id="btn_1">Press Me!</button>
+	</body>
+
+	<script type="text/javascript">
+
+	function doSomething() {
+		console.log("I have been pressed")
+	}
+
+	var btn_1 = document.querySelector('#btn_1');
+	btn_1.addEventListener("click",doSomething);
+
+	</script>
+</html>

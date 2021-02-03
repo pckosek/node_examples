@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>OnClick Page</title>
+	</head>
+
+	<body>
+		<p id="inp_display"></p>
+		
+	</body>
+
+	<script type="text/javascript">
+
+	function doSomething(e) {
+		var p = document.querySelector("#inp_display");
+		p.innerHTML = e.keyCode;
+	}
+
+	window.addEventListener('keydown', doSomething)
+
+	</script>
+</html>
