@@ -9,7 +9,7 @@ var someJSArray = [101, 102, 103, 104, 105];
 // elem will contain the current value of the array being mapped
 function times_three(elem, indx) {
 	console.log(indx)
-	return elem*3;
+	return elem*indx;
 }
 
 

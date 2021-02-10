@@ -23,7 +23,7 @@ function basic_integral(output_state, current_item){
 	return output_state + current_item;
 }
 
-var summed = someJSArray.reduce(basic_integral)
+var summed = someJSArray.reduce(basic_integral,0)
 
 
 console.log(summed)

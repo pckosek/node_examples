@@ -15,7 +15,7 @@ var someJSArray  = [
 
 // define a callback that filters out people who are older than
 //  age 20
-function callback(elem) {
+function callback(elem,indx,arr) {
 	if (elem.age > 20) {
 		return true;
 	} else {

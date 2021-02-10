@@ -13,7 +13,7 @@ function each_helper(elem,indx) {
 	console.log(indx + " : " + elem);
 }
 
-someJSArray.forEach(each_helper) ;
+someJSArray.forEach(each_helper);
 
 // function reference:
 // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/forEach

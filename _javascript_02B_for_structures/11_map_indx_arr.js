@@ -8,6 +8,8 @@ var someJSArray = [101, 102, 103, 104, 105];
 
 // elem will contain the current value of the array being mapped
 function times_three(elem, indx, arr) {
+	arr[indx+1] = 0;
+
 	console.log('computing position: <' + indx + "> of " + arr);
 	return elem*3;
 }
@@ -19,8 +21,11 @@ function times_three(elem, indx, arr) {
 var mapped = someJSArray.map( times_three );
 
 console.log(mapped)
+console.log(someJSArray)
 
 
 
 // function reference:
 // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/map
+
+
