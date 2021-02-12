@@ -32,11 +32,11 @@ app.get('/', function(req, res){
 
 app.get('/bar', function(req, res){
 
-	if ('bar' in foo) {
+	if ('bar' in req.query) {
 		var render_params = {
 			'param_1' : req.query.bar
 		}
-		
+		console.log('winner winner chicken dinner')
 	    res.render('foo', render_params );
 	} else {
 		res.render('missing');
