@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+	<title>The Menu Page</title>
+</head>
+<body>
+    
+    {{#each submenus}}
+    <h1>{{this.label}}</h1>
+    <ul>
+        {{#each this.items}}
+        <li>{{this.name}} {{this.price}}</li>
+        {{/each}}
+    </ul>
+    {{/each}}
+
+</body>
+</html>

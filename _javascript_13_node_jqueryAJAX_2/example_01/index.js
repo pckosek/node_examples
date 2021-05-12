@@ -6,13 +6,11 @@ var path = require('path');
 
 var app = express();                /* create our server */
 
-
-// -------------- express initialization -------------- //
-app.set('port', process.env.PORT || 8080 );
-
+var hbs = require('hbs')
+app.set('view engine', 'hbs');
 
 // -------------- serve static folders -------------- //
-app.use('/css', express.static(path.join(__dirname, 'css')))
+app.use(express.static(path.join(__dirname, 'static')))
 
 
 // -------------- define variables -------------- //
@@ -26,9 +24,7 @@ var menu = [
 
 // -------------- define endpoints -------------- //
 app.get('/', function(req, res){
-    res.sendFile(
-        path.join(__dirname, 'ajax_without_jquery.html')
-    );
+    res.render('ajax_without_jquery')
 })
 
 
@@ -50,6 +46,6 @@ app.get('/kitchen', function(req, res){
 // -------------- listener -------------- //
 // The listener is what keeps node 'alive.' 
 
-var listener = app.listen(app.get('port'), function() {
-  console.log( 'Express server started on port: '+listener.address().port );
+var listener = app.listen(process.env.PORT || 8080, process.env.HOST || "0.0.0.0", function() {
+    console.log("Express server started");
 });

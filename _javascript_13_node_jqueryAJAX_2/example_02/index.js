@@ -7,20 +7,18 @@ var app = express();
 var path = require('path');
 var headsTails = require('./serverJS/myMagicFunction.js')
 
-
-// -------------- express initialization -------------- //
-app.set('port', process.env.PORT || 8080 );
+var hbs = require('hbs')
+app.set('view engine', 'hbs');
 
 
 // -------------- serve static folders -------------- //
-app.use('/js', express.static(path.join(__dirname, 'js')))
-app.use('/css', express.static(path.join(__dirname, 'css')))
+app.use(express.static(path.join(__dirname, 'static')))
 
 
 // -------------- express 'get' handlers -------------- //
 //user root page i.e. https://user.tjhsst.edu/pckosek/
 app.get('/', function(req, res){
-    res.sendFile(__dirname + '/index.html');
+    res.render('index');
 });
 
 //requested page: https://user.tjhsst.edu/pckosek/getpet?name=foo&type=bar
@@ -51,6 +49,6 @@ app.get('/:page', function(req, res){
 // -------------- listener -------------- //
 // The listener is what keeps node 'alive.' 
 
-var listener = app.listen(app.get('port'), function() {
-  console.log( 'Express server started on port: '+listener.address().port );
+var listener = app.listen(process.env.PORT || 8080, process.env.HOST || "0.0.0.0", function() {
+    console.log("Express server started");
 });
